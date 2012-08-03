@@ -50,7 +50,7 @@
 % \fi
 %
 % \StopEventually{\PrintIndex \PrintChanges}
-% \CheckSum{1098}
+% \CheckSum{0}
 %
 % \DoNotIndex{\#,\$,\#,\&,\@,\\,\{,\},\^,\_,\~,\ }
 % \DoNotIndex{\addcontentsline, \addpenalty, \addtolength, \advance, \and}
@@ -798,9 +798,7 @@
 % E\&CE guidelines requre work reports to be set in 11 pt.\ type.
 % 
 %    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@ece}}{%
-  \def\uwwkrpt@textsize{11pt}}{%
-  \def\uwwkrpt@textsize{12pt}}
+\def\uwwkrpt@textsize{12pt}
 
 \DeclareOption{10pt}{\ClassWarning{uw-wkrpt}{%
   You requested a 10pt font but reports must be \uwwkrpt@textsize}}

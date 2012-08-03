@@ -51,13 +51,13 @@ TEXFILES=\
          $(PACKAGE)*.sty\
          $(PACKAGE)*.toc
 
-.PHONY : all examples pdf clean
+.PHONY : all example pdf clean
 
 all : $(PACKAGE).cls $(PACKAGE).pdf ;
 
 pdf : $(PACKAGE).pdf ;
 
-examples : $(PACKAGE).cls $(PACKAGE)-se.pdf   ;
+example: $(PACKAGE).cls $(PACKAGE)-se.pdf   ;
 
 %.cls : %.ins %.dtx
 	$(LATEX) $<
