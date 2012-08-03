@@ -1389,12 +1389,7 @@
 \let\appendix@rig\appendix
 \renewcommand{\appendix}{%
   \@mainsect%
-  \ifthenelse{\boolean{uwwkrpt@math}}{%
-    \renewcommand{\@secdotzerostart}[1]{\renewcommand{\dotzero}{}}
-    \renewcommand{\@secdotzeroend}[1]{}
-    }{}%
-  \ifthenelse{\boolean{uwwkrpt@ece} \or \boolean{uwwkrpt@se}}
-    {\renewcommand{\@appendixtitle}{Appendix }}{}
+    \renewcommand{\@appendixtitle}{Appendix }
   \appendix@rig%
 }
 %    \end{macrocode}
