@@ -1,3 +1,6 @@
+# Zameer's Note
+Don't use my fork.
+
 # uw-wkrpt
 
 This is a LaTeX document class to make you life easier when writing work term
