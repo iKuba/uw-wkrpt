@@ -832,24 +832,10 @@
 % The standard North American paper size is U.S. letter, sized 8.5 by 11
 % inches.  This is the default.
 %
-% The left and right margins will be set to 1.5 inches wide; the top
-% and bottom margins will be set to 1.0 inches wide.  This is required
-% by Section 9.8.5 of the CESRM~\cite{ref:cesrm}.
-%
-% For ECE work reports, the left margin will be set to 1.5 inches wide;
-% the other margins will be 1.0 inches wide.
-%
 % For SE work reports, all margins are set to 1.0 inches wide.
 %    \begin{macrocode}
-\newlength{\marginl}
-\newlength{\marginr}
-\newlength{\margintb}
 
-\setlength{\marginl}{1in}
-\setlength{\marginr}{1in}
-\setlength{\margintb}{1in}
-
-\RequirePackage[top=\margintb, bottom=\margintb, left=\marginl, right=\marginr]{geometry}
+\RequirePackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
 %    \end{macrocode}
 % \changes{v2.0}{2003/04/21}{Set margins correctly.}
 % \changes{v2.2}{2003/05/05}{Set top and bottom margins to 1 inch.}
