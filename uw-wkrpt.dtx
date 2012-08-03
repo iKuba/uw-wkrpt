@@ -845,15 +845,9 @@
 \newlength{\marginr}
 \newlength{\margintb}
 
-\setlength{\marginl}{1.5in}
-\setlength{\marginr}{1.5in}
+\setlength{\marginl}{1in}
+\setlength{\marginr}{1in}
 \setlength{\margintb}{1in}
-
-\ifthenelse{\boolean{uwwkrpt@ece} \or \boolean{uwwkrpt@se}}
-  {\setlength{\marginr}{1in}}{}
-
-\ifthenelse{\boolean{uwwkrpt@se}}
-  {\setlength{\marginl}{1in}}{}
 
 \RequirePackage[top=\margintb, bottom=\margintb, left=\marginl, right=\marginr]{geometry}
 %    \end{macrocode}
