@@ -50,7 +50,7 @@
 % \fi
 %
 % \StopEventually{\PrintIndex \PrintChanges}
-% \CheckSum{1108}
+% \CheckSum{1098}
 %
 % \DoNotIndex{\#,\$,\#,\&,\@,\\,\{,\},\^,\_,\~,\ }
 % \DoNotIndex{\addcontentsline, \addpenalty, \addtolength, \advance, \and}
@@ -1893,27 +1893,6 @@
 %</class>
 % \fi
 % \iffalse
-%<*legacy-ece>
-% \fi
-%
-% \subsection{Legacy code}
-%
-% The following code is to retain compatibility with the old
-% \textsf{uw-ece-workreport} document class.  It merely provides a stub
-% that calls \textsf{uw-wkrpt} with the |[ece]| option.
-%
-% This document class will be depreciated in \textsf{uw-wkrpt} 3.0.
-%    \begin{macrocode}
-\ClassWarning{uw-ece-workreport}{%
-  The `uw-ece-workreport' class is now ^^J%
-  deprecated.  Use `\string\usepackage[ece]{uw-wkrpt}' instead}
-\DeclareOption*{\PassOptionsToClass {\CurrentOption}{uw-wkrpt}}
-\ProcessOptions
-\LoadClass[ece]{uw-wkrpt}
-\newcommand{\UWECEWorkReportVersion}{2.0}
-%    \end{macrocode}
-% \iffalse
-%</legacy-ece>
 % \fi
 % \begin{thebibliography}{99}
 % \bibitem{ref:lamport}

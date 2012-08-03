@@ -73,4 +73,4 @@ $(PACKAGE).pdf : $(PACKAGE).dtx $(PACKAGE).cls
 	$(LATEX2PDF) $<
 
 clean :
-	rm -f $(TEXFILES) uw-ece-workreport.cls uw-ece-workreport.log
+	rm -f $(TEXFILES)
