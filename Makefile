@@ -33,9 +33,6 @@ BIBTEX = bibtex
 
 TEXI2PDF = PDFLATEX="$(LATEX2PDF)" texi2dvi -l latex -p
 
-# Shell
-RM = rm -f
-
 TEXFILES=\
          $(PACKAGE)*.aux\
          $(PACKAGE)*.bbl\
@@ -54,19 +51,13 @@ TEXFILES=\
          $(PACKAGE)*.sty\
          $(PACKAGE)*.toc
 
-.PHONY : all examples install uninstall pdf examples-pdf clean
+.PHONY : all examples pdf clean
 
 all : $(PACKAGE).cls $(PACKAGE).pdf ;
 
-examples : examples-pdf ;
-
 pdf : $(PACKAGE).pdf ;
 
-examples-pdf : $(PACKAGE).cls    \
-               $(PACKAGE)-cecs.pdf \
-	       $(PACKAGE)-ece.pdf  \
-	       $(PACKAGE)-math.pdf \
-	       $(PACKAGE)-se.pdf   ;
+examples : $(PACKAGE).cls $(PACKAGE)-se.pdf   ;
 
 %.cls : %.ins %.dtx
 	$(LATEX) $<
@@ -81,10 +72,5 @@ $(PACKAGE).pdf : $(PACKAGE).dtx $(PACKAGE).cls
 	$(LATEX2PDF) $<
 	$(LATEX2PDF) $<
 
-don-hires.eps : don-hires.pdf
-	pdf2ps $< $@
-
-don-hires.pdf : ;
-
 clean :
-	$(RM) $(TEXFILES) uw-ece-workreport.cls uw-ece-workreport.log don-hires.eps
+	rm -f $(TEXFILES) uw-ece-workreport.cls uw-ece-workreport.log
