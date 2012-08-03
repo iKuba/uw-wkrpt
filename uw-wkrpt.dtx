@@ -1154,14 +1154,6 @@
   \@setletterpagenum%
 %    \end{macrocode}
 %
-% Due to reasons I cannot comprehend, Section 3.3 of the Math
-% guidelines~\cite{ref:mwrg} requires that the letter of submittal be
-% left-justified.
-%    \begin{macrocode}
-  \ifthenelse{\boolean{uwwkrpt@math}}
-    {\raggedright}{}
-%    \end{macrocode}
-%
 % We use the standard business letter format, which means paragraphs
 % are not indented.
 %    \begin{macrocode}
@@ -1187,9 +1179,7 @@
 %    \begin{macrocode}
   \noindent\@@author\\\@address\par\noindent%
   \@@date \par\noindent%
-  \ifthenelse{\boolean{uwwkrpt@se}}
-    {\@chair, Director\\*\@chairaddress\par\noindent}%
-    {\@chair, Chair\\*\@chairaddress\par\noindent}%
+  \@chair, Director\\*\@chairaddress\par\noindent
   Dear \@chair:%
 %    \end{macrocode}
 %
