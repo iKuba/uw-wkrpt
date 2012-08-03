@@ -57,7 +57,8 @@ all : $(PACKAGE).cls $(PACKAGE).pdf ;
 
 pdf : $(PACKAGE).pdf ;
 
-example: $(PACKAGE).cls $(PACKAGE)-se.pdf   ;
+example: $(PACKAGE).cls $(PACKAGE)-se.pdf
+	latexmk $(PACKAGE)-se.tex -pdf
 
 %.cls : %.ins %.dtx
 	$(LATEX) $<
@@ -74,3 +75,4 @@ $(PACKAGE).pdf : $(PACKAGE).dtx $(PACKAGE).cls
 
 clean :
 	rm -f $(TEXFILES)
+	latexmk -C $(PACKAGE)-se.tex

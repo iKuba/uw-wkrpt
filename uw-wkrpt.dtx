@@ -1823,12 +1823,8 @@
 % |\bibliography|\marg{file} should come after |\backmatter|, since 
 % it should not have a section number.
 %    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@ece} 
-            \or \boolean{uwwkrpt@math} 
-            \or \boolean{uwwkrpt@se}}{%
-  \renewcommand{\bibliography@intoc}{%
-      \addcontentsline{toc}{section}{\refn@me}}%
-}{}
+\renewcommand{\bibliography@intoc}{%
+    \addcontentsline{toc}{section}{\refn@me}}%
 %    \end{macrocode}
 % \end{macro}
 % \iffalse
