@@ -856,7 +856,6 @@
 % \changes{v2.4}{2003/05/10}{Fixed one-and-half-spacing vs. double-spacing.}
 %    \begin{macrocode}
 \RequirePackage{setspace}
-\newcommand{\uwwkrpt@spacing}{\onehalfspacing}
 %    \end{macrocode}
 %
 % Each paragraph must be followed by a blank line, see Section 9.8.5 of
@@ -1239,7 +1238,7 @@
 % Now that the letter is done, we set the correct page number for pages
 % that follow the letter, and then restore double-spacing.
 %    \begin{macrocode}
-  \@setpostletterpagenum\uwwkrpt@spacing%
+  \@setpostletterpagenum\onehalfspacing%
   \ifthenelse{\not \boolean{uwwkrpt@se}}{\newpage}{}%
 %    \end{macrocode}
 %
@@ -1300,7 +1299,7 @@
   \clearpage
   \@notmainsect%
   \pagenumbering{roman}%
-  \uwwkrpt@spacing
+  \onehalfspacing
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1311,7 +1310,7 @@
 %    \begin{macrocode}
 \newcommand{\mainmatter}{%
   \clearpage
-  \uwwkrpt@spacing
+  \onehalfspacing
   \@mainsect%
   \pagenumbering{arabic}%
 %    \end{macrocode}
