@@ -1534,25 +1534,13 @@
 %\newcommand{\@setpostletterpagenum}{\setcounter{page}{1}}
 %    \end{macrocode}
 %
-% Section 3.1 of the Math guidelines~\cite{ref:mwrg} state that the title 
-% page is page i and the ``Table of Contents'' is page ii, because the 
-% letter of submittal is an insert, and not part of the report.
-%    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@math}}{%
-  \renewcommand{\@setletterpagenum}{\setcounter{page}{1}}
-  \renewcommand{\@setpostletterpagenum}{}
-}{}
-%    \end{macrocode}
-%
 % Section 2 of the E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} 
 % guidelines require that the submittal letter be page ii.  
 % The ``Table of Contents'' then follow in logical order, after any
 % preliminary sections.
 %    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@ece} \or \boolean{uwwkrpt@se}}{%
-  \renewcommand{\@setletterpagenum}{\setcounter{page}{2}}
-  \renewcommand{\@setpostletterpagenum}{}
-}{}
+\renewcommand{\@setletterpagenum}{\setcounter{page}{2}}
+\renewcommand{\@setpostletterpagenum}{}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1649,16 +1637,14 @@
 % The SE guidlines require that the entries are left-justified and not
 % indented. Furthermore, we include the full label, eg ``Figure 1-2''.
 %    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@se}}{%
-  \RequirePackage[titles]{tocloft}
-  \renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}}
-  \setlength{\cftfigindent}{0pt}
-  \newlength{\myfiglen}
-  \renewcommand{\cftfigpresnum}{\figurename\enspace}
-  \renewcommand{\cftfigaftersnum}{:}
-  \settowidth{\myfiglen}{\cftfigpresnum\cftfigaftersnum}
-  \addtolength{\cftfignumwidth}{\myfiglen}
-}{}
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsubsecdotsep}}
+\setlength{\cftfigindent}{0pt}
+\newlength{\myfiglen}
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cftfigaftersnum}{:}
+\settowidth{\myfiglen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\myfiglen}
 \let\listoffigures@rig\listoffigures
 \renewcommand{\listoffigures}{%
   \clearpage
@@ -1673,14 +1659,13 @@
 % The ``List of Tables'' should behave exactly as the ``List of
 % Figures''.
 %    \begin{macrocode}
-\ifthenelse{\boolean{uwwkrpt@se}}{%
-  \setlength{\cfttabindent}{0pt}
-  \newlength{\mytablen}
-  \renewcommand{\cfttabpresnum}{\tablename\enspace}
-  \renewcommand{\cfttabaftersnum}{:}
-  \settowidth{\mytablen}{\cfttabpresnum\cfttabaftersnum}
-  \addtolength{\cfttabnumwidth}{\mytablen}
-}{}
+\setlength{\cfttabindent}{0pt}
+\newlength{\mytablen}
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+\renewcommand{\cfttabaftersnum}{:}
+\settowidth{\mytablen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mytablen}
+
 \let\listoftables@rig\listoftables
 \renewcommand{\listoftables}{%
   \clearpage
