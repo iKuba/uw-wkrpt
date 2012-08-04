@@ -227,53 +227,6 @@
 % Since the computer does most of the formatting work, it is only
 % necessary to proofread the document and tweak minor details.
 %
-% \section{A simple document}
-%
-% Sample documents that show the recommended layout are available.
-% You can use these samples as a basis for your own report by removing
-% the generic text, and replacing it with your own.  As well, they
-% provide examples for how to typeset common forms.
-% These documents are stored as 
-% \texttt{uw-wkrpt-\textsl{faculty}.tex}, where
-% \texttt{\textsl{faculty}} is one of:
-% \begin{description}
-% \item[\texttt{ece}] for Electrical and Computer Engineering (E\&CE) 
-%                     students, this implements the ``E\&CE work term
-%                     report guidelines''~\cite{ref:ecewrg};
-% \item[\texttt{math}] for Mathematics (Math) students, this implements
-%                      the ``Faculty of mathematics work report 
-%                      guidelines''~\cite{ref:mwrg};
-% \item[\texttt{se}] for Software Engineering (SE) students, this
-%                    implements the ``Software engineering work report
-%                    guidelines''~\cite{ref:sewrg}; or
-% \item[\texttt{cecs}] for those students without special guidelines,
-%                      see section \ref{sec:documentclass}
-% \end{description}
-%
-% \subsection{The document class} \label{sec:documentclass}
-% 
-% \begin{DescribeEnv}{\textsf{uw-wkrpt}}
-% Every document needs to have a document class, so it must be
-% specified.  The simplest work report format is the one required by 
-% CECS and specified by Chapter 9 of the ``Co-operative education
-% student reference manual.''~(CESRM)~\cite{ref:cesrm}.  These
-% guidelines are used by the majority of programs and can be used like
-% so:
-% \begin{verbatim}\documentclass{uw-wkrpt}\end{verbatim}
-%
-% However, some programs have their own special requirements.  Although 
-% there are a number of such programs, I have only implemented the
-% guidelines for E\&CE~\cite{ref:ecewrg}, Math~\cite{ref:mwrg}, and 
-% SE~\cite{ref:sewrg}.  To specify these special
-% requirements, we provide an optional argument to the |\documentclass|
-% command.  For example, a Math student would use:
-% \begin{verbatim}\documentclass[math]{uw-wkrpt}\end{verbatim}
-% Notice how |[math]| is enclosed by square brackets.  Other valid
-% options are |[ece]| and |[se]|.
-%
-% Note that no text may appear before the |\documentclass| command.
-% \end{DescribeEnv}
-%
 % \subsection{The preamble} \label{sec:preamble}
 %
 % \newsavebox{\missingbegindocument}
