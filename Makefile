@@ -76,3 +76,4 @@ $(PACKAGE).pdf : $(PACKAGE).dtx $(PACKAGE).cls
 clean :
 	rm -f $(TEXFILES)
 	latexmk -C $(PACKAGE)-se.tex
+	rm -f *.xml
