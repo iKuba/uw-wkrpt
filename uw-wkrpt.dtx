@@ -1450,8 +1450,7 @@
 % SE~\cite{ref:sewrg} guidelines.
 %    \begin{macrocode}
 \let\section@rig\section
-\ifthenelse{\not \boolean{uwwkrpt@ece}}{
-  \renewcommand{\section}{\clearpage\section@rig}}{}
+\renewcommand{\section}{\clearpage\section@rig}
 %    \end{macrocode}
 % \end{macro}
 %
