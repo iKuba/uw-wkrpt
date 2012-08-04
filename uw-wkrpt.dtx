@@ -1226,16 +1226,10 @@
   \ifthenelse{\boolean{uwwkrpt@se}}{\setlength{\parindent}{3in}}{}
   \setlength{\parskip}{\uwwkrpt@parskip}
   \vspace*{\uwwkrpt@parskip}
-  \ifthenelse{\boolean{uwwkrpt@se}}{
   Sincerely,
   \vspace*{0.75in}\\
   \indent\@@author\\
-  \indent Student ID: \@uwid}%
-  {Yours sincerely,\\*%
-  \rule{0in}{0.3in}\\*{\hrule \@width 3in}%
-  \noindent\@@author, \@uwid
-  \par\noindent
-  Encl.}%
+  \indent Student ID: \@uwid
   \end{minipage}
 %    \end{macrocode}
 %
