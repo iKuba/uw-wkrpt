@@ -1317,13 +1317,6 @@
   \pagenumbering{arabic}%
 %    \end{macrocode}
 %
-% Section 3.1 of the Math guidelines~\cite{ref:mwrg} state that numbered 
-% sections should not have page breaks between them.  This is why we
-% restore |\section| to its original form.
-%    \begin{macrocode}
-  \ifthenelse{\boolean{uwwkrpt@math}}%
-    {\let\section\section@rig}
-%    \end{macrocode}
 % \begin{macro}{\dotzero}
 % \begin{macro}{\@secdotzerostart}
 % \begin{macro}{\@secdotzeroend}
@@ -1334,16 +1327,6 @@
   \global\def\dotzero{}
   \global\def\@secdotzerostart##1{}
   \global\def\@secdotzeroend##1{}
-  \ifthenelse{\boolean{uwwkrpt@math}}{%
-    \renewcommand{\@secdotzerostart}[1]{%
-      \let\quad@rig\quad
-      \ifthenelse{\equal{##1}{section}}{%
-        \renewcommand{\quad}{.0\quad@rig}%
-        \renewcommand{\dotzero}{.0}}{\renewcommand{\dotzero}{}}
-    }
-    \renewcommand{\@secdotzeroend}[1]
-      {\ifthenelse{\equal{##1}{section}}{\let\quad\quad@rig}}
-  }{}%
 %    \end{macrocode}
 %
 % \begin{macro}{\@appendixtitle}
