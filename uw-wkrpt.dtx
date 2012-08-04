@@ -792,31 +792,6 @@
 % \changes{v2.0}{2003/04/26}{Select between different programs'
 %                            guidelines.}
 %
-% Work reports must always be set in 12 pt.\ type.  Warn the author if
-% he specifies smaller type, and use 12 pt.\ nevertheless.
-% 
-% E\&CE guidelines requre work reports to be set in 11 pt.\ type.
-% 
-%    \begin{macrocode}
-\def\uwwkrpt@textsize{12pt}
-
-\DeclareOption{10pt}{\ClassWarning{uw-wkrpt}{%
-  You requested a 10pt font but reports must be \uwwkrpt@textsize}}
-
-\ifthenelse{\boolean{uwwkrpt@ece}}{%
-  \DeclareOption{12pt}{\ClassWarning{uw-wkrpt}{%
-    You requested a 12pt font but reports must be \uwwkrpt@textsize}}}{%
-  \DeclareOption{11pt}{\ClassWarning{uw-wkrpt}{%
-    You requested a 11pt font but reports must be \uwwkrpt@textsize}}}
-%    \end{macrocode}
-%
-% \changes{v2.0}{2003/04/25}{Enforce 12 pt.\ type.}
-% \changes{v2.7}{2011/09/16}{Enforce 11 pt.\ type for ECE reports.}
-% \changes{v2.8}{2012/04/24}{Fix bug so letter format options work. Adjust the
-%                            spacing for `blockletter' format.}
-% \changes{v2.8.1}{2012/04/25}{Remove `blockletter' and `modifiedletter'
-%                              options.}
-%
 % All of the options specific to this class are declared.  The rest of
 % the options will be passed to the standard \LaTeXe{} \textsf{article}
 % document class, the options processed, and the \textsf{article} class 
@@ -824,7 +799,7 @@
 %    \begin{macrocode}
 \DeclareOption*{\PassOptionsToClass {\CurrentOption}{article}}
 \ProcessOptions
-\LoadClass[titlepage,\uwwkrpt@textsize]{article}
+\LoadClass[titlepage,12pt]{article}
 %    \end{macrocode}
 %
 % \subsection{Page margins}
