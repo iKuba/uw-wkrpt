@@ -758,44 +758,9 @@
 %<*class>
 % \fi
 %
-% To parse the required arguments, the \textsf{ifthen} package is loaded.
-% This way, the standard \LaTeX{} facilities can be used instead of the
-% \TeX{} |\if| primitives.
-%    \begin{macrocode}
-\RequirePackage{ifthen}
-%    \end{macrocode}
-%
-% \subsection{Parsing options} \label{sec:parseopts}
-% Since this is a document class, the first thing to do is parse out the
-% options that were passed in.  To specify which program this work
-% report is written for, the author passes either \texttt{math},
-% \texttt{ece} or \texttt{se} options.  By default, we use the CESRM
-% guidelines~\cite{ref:cesrm}.
-%
-% So, the options are declared, and boolean flags of the form
-% |uwwkrpt@|\meta{program} are declared.
-%    \begin{macrocode}
-\newif\ifuwwkrpt@math \uwwkrpt@mathfalse
-\DeclareOption{math}{%
-  \uwwkrpt@mathtrue
-  \write10{([math] Mathematics report)}}
-\newif\ifuwwkrpt@ece \uwwkrpt@ecefalse
-\DeclareOption{ece}{%
-  \uwwkrpt@ecetrue
-  \write10{([ece] Electrical and Computer Engineering report)}}
-\newif\ifuwwkrpt@se \uwwkrpt@sefalse
-\DeclareOption{se}{%
-  \uwwkrpt@setrue
-  \write10{([se] Software Engineering report)}}
-%    \end{macrocode}
-%
-% \changes{v2.0}{2003/04/26}{Select between different programs'
-%                            guidelines.}
-%
-% All of the options specific to this class are declared.  The rest of
-% the options will be passed to the standard \LaTeXe{} \textsf{article}
-% document class, the options processed, and the \textsf{article} class 
-% loaded.  
+% The options will be passed to the standard \LaTeXe{} \textsf{article}
+% document class, the options processed, and the \textsf{article} class
+% loaded.
 %    \begin{macrocode}
 \DeclareOption*{\PassOptionsToClass {\CurrentOption}{article}}
 \ProcessOptions
