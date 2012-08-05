@@ -205,12 +205,6 @@
 % because she last attended school in her 1A term.
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\chairaddress}
-% The |\chairaddress|\marg{text} command defines the address to which
-% you will send your report.  Like the |\address| command, you should
-% break lines appropriately.
-% \end{DescribeMacro}
-%
 % \subsubsection{Optional values} \label{sec:optvalues}
 %
 % Some commands are completely optional and do not have to be included
@@ -272,7 +266,6 @@
 % \par^^A Insert a paragraph here to flush the floats.
 % \begin{DescribeMacro}{\theuserid}
 % \begin{DescribeMacro}{\theterm}
-% \begin{DescribeMacro}{\thechairaddress}
 % \begin{DescribeMacro}{\thedate}
 % \begin{DescribeMacro}{\theconfidential}
 % Here is a more comprehensive example:
@@ -297,7 +290,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -515,7 +507,6 @@
 % \begin{macro}{\employeraddress}
 % \begin{macro}{\userid}
 % \begin{macro}{\term}
-% \begin{macro}{\chairaddress}
 % New variables which are defined.  These, like the ones
 % above, are used to construct the title page.  As well, they can be
 % used to construct the letter of submittal.
@@ -540,13 +531,9 @@
 \newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
   \newcommand{\@term}{\ClassError{uw-wkrpt}%
     {No \noexpand\term given}{}}
-\newcommand{\chairaddress}[1]{\renewcommand{\@chairaddress}{#1}}
-  \newcommand{\@chairaddress}{\ClassError{uw-wkrpt}%
-    {No \noexpand\chairaddress given}{}}
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -573,7 +560,6 @@
 % \begin{macro}{\theemployeraddress}
 % \begin{macro}{\theuserid}
 % \begin{macro}{\theterm}
-% \begin{macro}{\thechairaddress}
 % The following commands are defined to access these values of these
 % new variables in case the author wishes to refer to them within the 
 % document.
@@ -586,11 +572,9 @@
 \newcommand{\theemployeraddress}{\@employeraddress}
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theterm}{\@term}
-\newcommand{\thechairaddress}{\@chairaddress}
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -706,7 +690,11 @@
 %    \begin{macrocode}
   \noindent\@@author\\\@address\par\noindent%
   \@@date \par\noindent%
-  Dr.\ Andrew\ Morton, Director\\*\@chairaddress\par\noindent
+  Dr.\ Andrew\ Morton, Director\\*
+  Software Engineering\\*
+  University of Waterloo\\*
+  Waterloo, ON\ \ N2L 3G1
+  \par\noindent
   Dear Sir:%
 
     \par}
