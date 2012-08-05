@@ -71,6 +71,16 @@
 
 \usepackage[title, titletoc]{appendix}
 
+\usepackage{caption}
+\captionsetup{
+  font=small,
+  labelfont=bf,
+  figurewithin=section,
+  tablewithin=section
+}
+\renewcommand\thefigure{\arabic{section}-\arabic{figure}}
+\renewcommand\thetable{\arabic{section}-\arabic{table}}
+
 % Now we will begin writing the document.
 \begin{document}
 
