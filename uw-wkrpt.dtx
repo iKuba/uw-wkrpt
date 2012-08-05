@@ -82,7 +82,7 @@
 % \DoNotIndex{\@svsec, \@svsechd, \@seccntformat, \@sect, \setcounter, 
 %             \setlength, \settowidth, \small, \string}
 % \DoNotIndex{\@tempdima, \@tempskipa, \textbf, \textheight, \textit, 
-%             \textsc, \textwidth, \thanks, \thesection, \thispagestyle,
+%             \textsc, \textwidth, \thesection, \thispagestyle,
 %             \today, \topmargin}
 % \DoNotIndex{\undefined, \urlstyle, \usepackage, 
 %             \UWECEWorkReportVersion, \uwwkrpt@ecefalse, 
@@ -128,9 +128,8 @@
 %^^A This doesn't work
 %^^A \GetFileInfo{uw-wkrpt.cls}
 %
-% \title{The \textsf{uw-wkrpt} document class\thanks{Version \fileversion, 
-%                                                    last revised \filedate}}
-% \author{Simon Law\thanks{\textsf{sfllaw@engmail.uwaterloo.ca}}}
+% \title{The \textsf{uw-wkrpt} document class}
+% \author{Simon Law}
 % \def\today{\number\day \space\ifcase\month\or
 %   January\or February\or March\or April\or May\or June\or
 %   July\or August\or September\or October\or November\or December\fi
@@ -177,19 +176,6 @@
 % necessary to proofread the document and tweak minor details.
 %
 % \subsection{The preamble} \label{sec:preamble}
-%
-% \newsavebox{\missingbegindocument}
-% \begin{lrbox}{\missingbegindocument}^^A
-% \verb'! LaTeX Error: Missing \begin{document}.'^^A
-% \end{lrbox}
-% Between the |\documentclass{uw-wkrpt}| command and the 
-% |\begin{document}| command is the section known as the preamble.
-% No text may occur here,^^A
-% \footnote{In fact, if plain text does get put in the
-% preamble \LaTeX{} will complain with the error: 
-% \usebox{\missingbegindocument}}
-% but commands to set initial values and options
-% are declared at this point.
 %
 % \subsubsection{Mandatory values} \label{sec:mandvalues}
 %
@@ -785,7 +771,6 @@
   \begin{singlespacing}
   \let\footnotesize\small
   \let\footnoterule\relax
-  \let \footnote \thanks
   \begin{center}
     {\large \MakeTextUppercase{University of Waterloo} \par Software Engineering}%
   \end{center}
@@ -808,7 +793,6 @@
       \end{tabular}\par}%
     \@date \par%
   \end{center}
-  \@thanks
   \end{singlespacing}
   \end{titlepage}%
 %    \end{macrocode}
@@ -816,9 +800,7 @@
 % After defining the title page, commands we no longer need are let go.
 %    \begin{macrocode}
   \setcounter{footnote}{0}%
-  \global\let\thanks\@gobble
   \global\let\maketitle\relax
-  \global\let\@thanks\@empty
   \global\let\@author\@empty
   \global\let\@date\@empty
   \global\let\@title\@empty
@@ -828,7 +810,6 @@
   \global\let\and\relax
 }
 %    \end{macrocode}
-% \changes{v2.0}{2003/04/25}{Fixed \textbackslash thanks command.}
 % \end{macro}
 %
 % As well, this page should have no page numbering.
