@@ -391,22 +391,6 @@
 \LoadClass[titlepage,12pt]{article}
 %    \end{macrocode}
 %
-% \subsection{Spacing}
-%
-% Spacing is rather important in this document, as there are several
-% requirements for line spacing.
-%
-% To facilitate changing from single-spaced to one-and-half-spaced
-% or double-spaced throughout the document, the \textsf{setspace} package
-% is loaded.  See Section 9.8.5 of the CESRM~\cite{ref:cesrm}.
-%
-% Software Engineering and ECE students, their reports must be one-and-half-spaced
-% (See Section 2 of the SE guidelines~\cite{ref:sewrg}.)
-% \changes{v2.4}{2003/05/10}{Fixed one-and-half-spacing vs. double-spacing.}
-%    \begin{macrocode}
-\RequirePackage{setspace}
-%    \end{macrocode}
-%
 % Each paragraph must be followed by a blank line, see Section 9.8.5 of
 % the CESRM~\cite{ref:cesrm}.  Instead of introducing a completely blank 
 % line, which is hideous due to spacing issues, we space each paragraph 
@@ -515,7 +499,6 @@
 %    \begin{macrocode}
 \newcommand{\mymaketitle}{%
   \begin{titlepage}
-  \begin{singlespacing}
   \let\footnotesize\small
   \let\footnoterule\relax
   \begin{center}
@@ -540,7 +523,6 @@
       \end{tabular}\par}%
     \thedate \par%
   \end{center}
-  \end{singlespacing}
   \end{titlepage}%
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Made some SE-only tweaks.}
