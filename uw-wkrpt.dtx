@@ -161,57 +161,6 @@
 % the general CECS conventions.  Work reports are checked to ensure
 % that they conform.
 %
-% Human beings are fallable, however, and are liable to misinterpret
-% the required conventions.  Formatting a document according to fixed
-% rules is something a computer should be apt at doing.  Indeed, this
-% \LaTeX{} document class implements the formatting so that is done
-% automatically.
-%
-% The inquiring mind may wonder, ``why choose \LaTeX{}?''  We must
-% consider that it is not a common application with which undergraduate
-% students are familiar.  Indeed, a word processor is more comfortable
-% to most students.  However, implementing the requirements of each
-% style in a word processor is far from simple.  Templates and styles
-% are available to the student, but they are neither transparent to use
-% nor easy to implement.  \LaTeX{} is a simple, macro based language
-% that can format text without great user effort.  It can parse plain
-% text with some sparse semantic tags to provide a decent report.  Since
-% it is coupled with the world-renowned \TeX{} typesetting engine, the
-% resulting report is \ae{}sthetically pleasing and typeset tastefully.
-%
-% A simple \LaTeX{} document can be constructed
-% easily~\cite{ref:lamport}, with the knowledge
-% of just a few commands.  In the example on the following page, it is 
-% plain to see that the majority of the document is entered as
-% plain text.
-% \begingroup\center
-% \begin{minipage}[c]{\ExampleWidth-5mm}
-%^^A We must manually hint the hyphenation here, as the English
-%^^A hyphenation module knows nothing about Latin.
-%   Lorem ip\-sum do\-lor sit amet, con\-sec\-te\-tur 
-%   adipi\-sicing elit, sed do eius\-mod tem\-por 
-%   in\-ci\-di\-dunt ut labore et do\-lore magna ali\-qua. 
-%   Ut enim ad mi\-nim ven\-iam, quis nos\-trud 
-%   exer\-cita\-tion ullam\-co labo\-ris ni\-si ut 
-%   ali\-quip ex ea commodo con\-se\-quat.
-% \end{minipage}
-% \begin{minipage}{\textwidth-\ExampleWidth}
-%   \fvset{xrightmargin=0pt}
-%   \begin{Verbatim}
-%     \documentclass{article}
-%     \begin{document}
-%
-%     Lorem ipsum dolor sit amet, consectetur 
-%     adipisicing elit, sed do eiusmod tempor 
-%     incididunt ut labore et dolore magna aliqua. 
-%     Ut enim ad minim veniam, quis nostrud 
-%     exercitation ullamco laboris nisi ut 
-%     aliquip ex ea commodo consequat.
-%
-%     \end{document}
-%   \end{Verbatim}
-% \end{minipage}
-% \endcenter\endgroup
 % \noindent
 % Each macro is prefixed by a backslash, and is followed by an
 % alphabetic identifier.  Parameters to these macros are encased within
@@ -284,7 +233,7 @@
 % \end{DescribeMacro}
 % 
 % \begin{DescribeMacro}{\employeraddress}
-% The |\employeraddress|\marg{text} command defines the employer's 
+% The |\employeraddress|\marg{text} command defines the employer's
 % short address, which should merely be the name of the city and province.
 % For example, if the employer is located in Montr\'eal, Qu\'ebec:
 % \begin{verbatim}\employeraddress{Montr\'eal, QC}\end{verbatim}
@@ -294,15 +243,8 @@
 % \begin{verbatim}\employeraddress{London, UK}\end{verbatim}
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\school}
-% The |\school|\marg{text} command defines the name of the school 
-% the author attends.  This should be
-% \begin{verbatim}\school{University of Waterloo}\end{verbatim}
-% for most students.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\faculty}
-% The |\faculty|\marg{text} command defines the faculty or program 
+% The |\faculty|\marg{text} command defines the faculty or program
 % the author is in.
 % \end{DescribeMacro}
 %
@@ -316,9 +258,9 @@
 % \end{DescribeMacro}
 %
 % \begin{DescribeMacro}{\term}
-% The |\term|\marg{text} command defines the previous academic term 
-% the author was enrolled in.  For instance, if the author has only 
-% finished one school term, (\emph{i.e.} she is in stream four), then 
+% The |\term|\marg{text} command defines the previous academic term
+% the author was enrolled in.  For instance, if the author has only
+% finished one school term, (\emph{i.e.} she is in stream four), then
 % she would use
 % \begin{verbatim}\term{1A}\end{verbatim}
 % because she last attended school in her 1A term.
@@ -335,8 +277,8 @@
 % whom your letter of submittal is submitted.
 % From Section 9.9.1 of the CESRM~\cite{ref:cesrm}:
 % \begin{quote}
-%   If this is your first report (except if you are in Arts, Math, AHS, 
-%   Geography or Science) address your letter to Mr. B. Lumsden, 
+%   If this is your first report (except if you are in Arts, Math, AHS,
+%   Geography or Science) address your letter to Mr. B. Lumsden,
 %   Director, Co-operative Education \& Career Services.  If it is not 
 %   your first report or if you are in Arts, Math, Geography or Science,
 %   direct your letter to the Department Chair. If you are in AHS, your
@@ -383,19 +325,6 @@
 %
 % There are several levels of confidentiality:
 % \begin{description}
-% \item[Not confidential] These reports can be reviewed and evaluated by 
-%                         one or more markers.
-% \item[Confidential-1] These reports must be stored safely, and may only
-%                       be evaluated by one marker.  No duplicates may be
-%                       made.
-% \item[Confidential-2] One particular aspect of the report may be subject
-%                       to a non-disclosure agreement.  This must be
-%                       negotiated between the employer and a particular 
-%                       marker.
-% \item[Confidential-3] Confidential data contained in the report has been 
-%                       altered to permit disclosure.
-% \item[Confidential-4] The report cannot leave the employer and must be
-%                       evaluated by a fellow employee.
 % \item[SE-confidential] This is the only level of confidentiality for
 %                        Software Engineering reports. The report is placed in
 %                        an envelope marked ``SE-confidential'', and is treated
@@ -414,13 +343,11 @@
 % \begin{DescribeMacro}{\theaddress}
 % \begin{DescribeMacro}{\theemployer}
 % \begin{DescribeMacro}{\theemployeraddress}
-% \begin{DescribeMacro}{\theschool}
 % \begin{DescribeMacro}{\thefaculty}
 % Each of these commands reproduce the text defined by the respective
 % command defined in the previous sections.  Although these macros
 % can be used anywhere in the report, they are used primarily in the 
 % \textbf{letter} environment, see Section \ref{sec:prelim}.
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -825,7 +752,6 @@
 % \begin{macro}{\address}
 % \begin{macro}{\employer}
 % \begin{macro}{\employeraddress}
-% \begin{macro}{\school}
 % \begin{macro}{\faculty}
 % \begin{macro}{\userid}
 % \begin{macro}{\email}
@@ -851,9 +777,6 @@
 \newcommand{\employeraddress}[1]{\renewcommand{\@employeraddress}{#1}}
   \newcommand{\@employeraddress}{\ClassError{uw-wkrpt}%
     {No \noexpand\employeraddress given}{}}
-\newcommand{\school}[1]{\renewcommand{\@school}{#1}}
-  \newcommand{\@school}{\ClassError{uw-wkrpt}%
-    {No \noexpand\school given}{}}
 \newcommand{\faculty}[1]{\renewcommand{\@faculty}{#1}}
   \newcommand{\@faculty}{\ClassError{uw-wkrpt}%
     {No \noexpand\faculty given}{}}
@@ -889,7 +812,6 @@
 % \end{macro}
 % \end{macro}
 % \end{macro}
-% \end{macro}
 %
 % \begin{macro}{\confidential}
 % |\confidential| is an optional value, see Section \ref{sec:optvalues}.
@@ -908,7 +830,6 @@
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
 % \begin{macro}{\theemployeraddress}
-% \begin{macro}{\theschool}
 % \begin{macro}{\thefaculty}
 % \begin{macro}{\theuserid}
 % \begin{macro}{\theemail}
@@ -926,7 +847,6 @@
 \newcommand{\theaddress}{\@address}
 \newcommand{\theemployer}{\@employer}
 \newcommand{\theemployeraddress}{\@employeraddress}
-\newcommand{\theschool}{\@school}
 \newcommand{\thefaculty}{\@faculty}
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theemail}{\@email}
@@ -937,7 +857,6 @@
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -974,7 +893,7 @@
   \let\footnoterule\relax
   \let \footnote \thanks
   \begin{center}
-    {\large \MakeTextUppercase{\@school} \par \@faculty}%
+    {\large \MakeTextUppercase{University of Waterloo} \par \@faculty}%
   \end{center}
   \null\vfill%
   \begin{center}%
@@ -1151,8 +1070,6 @@
   \global\let\@chair\@empty
   \global\let\chairaddress\relax
   \global\let\@chairaddress\@empty
-  \global\let\school\relax
-  \global\let\@school\@empty
   \global\let\faculty\relax
   \global\let\@faculty\@empty
   \global\let\term\relax
