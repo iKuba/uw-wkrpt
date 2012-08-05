@@ -204,13 +204,6 @@
 % Some commands are completely optional and do not have to be included
 % in the preamble.
 %
-% \begin{DescribeMacro}{\date}
-% The |\date|\marg{text} command defines an arbitrary date for the title
-% page and  the letter of submittal.  By default, today's date is used.  
-%
-% This is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\confidential}
 % The |\confidential|\marg{text} command defines the confidentiality of
 % the report.  Most reports do not require this command.  Refer to
@@ -258,7 +251,6 @@
 % \par^^A Insert a paragraph here to flush the floats.
 % \begin{DescribeMacro}{\theuserid}
 % \begin{DescribeMacro}{\theterm}
-% \begin{DescribeMacro}{\thedate}
 % \begin{DescribeMacro}{\theconfidential}
 % Here is a more comprehensive example:
 % \begingroup\center
@@ -282,7 +274,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -443,20 +434,6 @@
 %
 % \subsection{Manditory and optional values}
 %
-% We override the standard \LaTeX{} commands and |\date|.
-%
-% \begin{macro}{\date}
-% The date defaults to today's date.  This is still an optional command,
-% see Section \ref{sec:optvalues}.
-%    \begin{macrocode}
-\renewcommand{\date}[1]{%
-  \renewcommand{\@date}{#1}%
-  \renewcommand{\@@date}{#1}}
-\newcommand{\@@date}{\today}
-%    \end{macrocode}
-% \changes{v2.0}{2003/04/26}{\LaTeXe{} style definitions.}
-% \end{macro}
-%
 % \begin{macro}{\uwid}
 % \begin{macro}{\address}
 % \begin{macro}{\employer}
@@ -507,7 +484,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thedate}
 % \begin{macro}{\theuwid}
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
@@ -524,10 +500,8 @@
 \newcommand{\theemployeraddress}{\@employeraddress}
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theterm}{\@term}
-\newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -574,7 +548,7 @@
         Student ID: \@uwid\\ User ID: \@userid\\
         \@term{} Software Engineering
       \end{tabular}\par}%
-    \@date \par%
+    \thedate \par%
   \end{center}
   \end{singlespacing}
   \end{titlepage}%
@@ -584,8 +558,6 @@
 %    \begin{macrocode}
   \setcounter{footnote}{0}%
   \global\let\mymaketitle\relax
-  \global\let\@date\@empty
-  \global\let\date\relax
   \global\let\and\relax
 }
 %    \end{macrocode}
@@ -626,7 +598,7 @@
 % the director, not the chair.
 %    \begin{macrocode}
   \noindent\theauthor\\\@address\par\noindent%
-  \@@date \par\noindent%
+  \thedate \par\noindent%
   Dr.\ Andrew\ Morton, Director\\*
   Software Engineering\\*
   University of Waterloo\\*
@@ -672,7 +644,6 @@
 %
 % All the excess variables that were used can now be let go.
 %    \begin{macrocode}
-  \global\let\@@date\@empty
   \global\let\uwid\relax
   \global\let\@uwid\@empty
   \global\let\userid\relax
