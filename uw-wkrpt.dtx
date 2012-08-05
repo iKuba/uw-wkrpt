@@ -1152,18 +1152,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\section}
-% Every section must start on a separate page.  Overloading the
-% |\section| command ensures this.  Although the CESRM~\cite{ref:cesrm}
-% implies this, Math~\cite{ref:mwrg}, and Engineering demand this, 
-% see section 3.1 of the Math guidelines~\cite{ref:mwrg}; and
-% SE~\cite{ref:sewrg} guidelines.
-%    \begin{macrocode}
-\let\section@rig\section
-\renewcommand{\section}{\clearpage\section@rig}
-%    \end{macrocode}
-% \end{macro}
-%
 % \subsection{Tables and Lists} \label{sec:toc}
 %
 % \subsubsection{Lists of stuff}
