@@ -948,7 +948,7 @@
 % Now that the letter is done, we set the correct page number for pages
 % that follow the letter, and then restore double-spacing.
 %    \begin{macrocode}
-  \@setpostletterpagenum\onehalfspacing%
+    \onehalfspacing%
 %    \end{macrocode}
 %
 % \changes{v2.8}{2012/04/24}{Ensure page number shows up on the Executive
@@ -1184,13 +1184,11 @@
 % the front matter section.
 %
 % \begin{macro}{\@setletterpagenum}
-% \begin{macro}{\@setpostletterpagenum}
 % Section 9.9.1, Figure 3, of the CESRM shows an example ``Table of
 % Contents'' that begins on page i.  We will take this as the correct
 % example.
 %    \begin{macrocode}
 \newcommand{\@setletterpagenum}{}
-\newcommand{\@setpostletterpagenum}{\setcounter{page}{0}}
 %    \end{macrocode}
 %
 % Section 2 of the E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} 
@@ -1199,9 +1197,7 @@
 % preliminary sections.
 %    \begin{macrocode}
 \renewcommand{\@setletterpagenum}{\setcounter{page}{2}}
-\renewcommand{\@setpostletterpagenum}{}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 %
 % \subsubsection{Table of contents}
