@@ -154,12 +154,6 @@
 % This command is analogous to the standard \LaTeXe{} command.
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\author}
-% The |\author|\marg{text} command defines the author's name.  
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\uwid}
 % The |\uwid|\marg{text} command defines the author's student 
 % identification number.
@@ -247,7 +241,6 @@
 %
 % \subsubsection{Accessing values}
 %
-% \begin{DescribeMacro}{\theauthor}
 % \begin{DescribeMacro}{\thetitle}
 % \begin{DescribeMacro}{\theuwid}
 % \begin{DescribeMacro}{\theaddress}
@@ -257,7 +250,6 @@
 % command defined in the previous sections.  Although these macros
 % can be used anywhere in the report, they are used primarily in the 
 % \textbf{letter} environment, see Section \ref{sec:prelim}.
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -451,21 +443,7 @@
 %
 % \subsection{Manditory and optional values}
 %
-% We override the standard \LaTeX{} commands |\author|, and
-% |\date|.
-%
-% \begin{macro}{\author}
-% The author must be defined, and is therefore enforced.  See Section
-% \ref{sec:mandvalues}.
-%    \begin{macrocode}
-\renewcommand{\author}[1]{%
-  \renewcommand{\@author}{#1}%
-  \renewcommand{\@@author}{#1}}
-\newcommand{\@@author}{\ClassError{uw-wkrpt}%
-  {No \noexpand\author given}{}}
-%    \end{macrocode}
-% \changes{v2.0}{2003/04/26}{\LaTeXe{} style definitions.}
-% \end{macro}
+% We override the standard \LaTeX{} commands and |\date|.
 %
 % \begin{macro}{\date}
 % The date defaults to today's date.  This is still an optional command,
@@ -529,7 +507,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\theauthor}
 % \begin{macro}{\thedate}
 % \begin{macro}{\theuwid}
 % \begin{macro}{\theaddress}
@@ -541,7 +518,6 @@
 % new variables in case the author wishes to refer to them within the 
 % document.
 %    \begin{macrocode}
-\newcommand{\theauthor}{\@@author}
 \newcommand{\theuwid}{\@uwid}
 \newcommand{\theaddress}{\@address}
 \newcommand{\theemployer}{\@employer}
@@ -551,7 +527,6 @@
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -595,7 +570,7 @@
     \normalsize
     \textbf{Prepared by}\\
       \begin{tabular}[t]{c}%
-        \@author\\
+        \theauthor\\
         Student ID: \@uwid\\ User ID: \@userid\\
         \@term{} Software Engineering
       \end{tabular}\par}%
@@ -609,9 +584,7 @@
 %    \begin{macrocode}
   \setcounter{footnote}{0}%
   \global\let\mymaketitle\relax
-  \global\let\@author\@empty
   \global\let\@date\@empty
-  \global\let\author\relax
   \global\let\date\relax
   \global\let\and\relax
 }
@@ -652,7 +625,7 @@
 % Note that for Software Engineering reports, the letter is addressed to
 % the director, not the chair.
 %    \begin{macrocode}
-  \noindent\@@author\\\@address\par\noindent%
+  \noindent\theauthor\\\@address\par\noindent%
   \@@date \par\noindent%
   Dr.\ Andrew\ Morton, Director\\*
   Software Engineering\\*
@@ -680,7 +653,7 @@
   \vspace*{\uwwkrpt@parskip}
   Sincerely,
   \vspace*{0.75in}\\
-  \indent\@@author\\
+  \indent\theauthor\\
   \indent Student ID: \@uwid
   \end{minipage}
 %    \end{macrocode}
@@ -699,7 +672,6 @@
 %
 % All the excess variables that were used can now be let go.
 %    \begin{macrocode}
-  \global\let\@@author\@empty
   \global\let\@@date\@empty
   \global\let\uwid\relax
   \global\let\@uwid\@empty
