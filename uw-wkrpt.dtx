@@ -1298,15 +1298,6 @@
 %
 % \begin{environment}{figure}
 % \begin{environment}{table}
-% According to Section 9.9.3 of the CESRM~\cite{ref:cesrm}, Figures
-% and tables must be on their own page after they have been referenced
-% in the text.  The only way to guarantee this is to change the default 
-% \meta{loc} argument in |\begin{table}|\oarg{loc} to |[p]|.
-%    \begin{macrocode}
-\renewenvironment{figure}[1][p]{\begin{figure@rig}[#1]}{\end{figure@rig}}
-\renewenvironment{table}[1][p]{\begin{table@rig}[#1]}{\end{table@rig}}
-%    \end{macrocode}
-%
 % According to Section 3.4 of the Math guidelines~\cite{ref:mwrg};
 % and Section 2 of the E\&CE~\cite{ref:ecewrg} and the
 % SE~\cite{ref:sewrg} guidelines, figures and tables must appear
@@ -1360,8 +1351,8 @@
 % IEEE Computer Society implement.
 %
 % \begin{macro}{\bibliography}
-% Add the References section to the Table of Contents.  As well, make it 
-% single spaced.  
+% Add the References section to the Table of Contents.  As well, make it
+% single spaced.
 %    \begin{macrocode}
 \let\bib@rig\bibliography
 \renewcommand{\bibliography}[1]{%
