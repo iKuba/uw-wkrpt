@@ -1175,7 +1175,6 @@
 %    \begin{macrocode}
 \let\tableofcontents@rig\tableofcontents
 \renewcommand{\tableofcontents}{%
-  \clearpage
   \setlength{\parskip}{0pt}
   \tableofcontents@rig \par
 }
@@ -1213,7 +1212,6 @@
 \addtolength{\cftfignumwidth}{\myfiglen}
 \let\listoffigures@rig\listoffigures
 \renewcommand{\listoffigures}{%
-  \clearpage
   \listoffigures@rig%
 }
 %    \end{macrocode}
@@ -1232,7 +1230,6 @@
 
 \let\listoftables@rig\listoftables
 \renewcommand{\listoftables}{%
-  \clearpage
   \listoftables@rig%
 }
 %    \end{macrocode}
