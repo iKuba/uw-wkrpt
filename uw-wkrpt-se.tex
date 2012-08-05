@@ -38,6 +38,7 @@
 
 % Use biblatex for references
 \usepackage[style=ieee,sorting=none,dateabbrev=false,backend=biber]{biblatex}
+\renewcommand\refname{References}
 \addbibresource{uw-wkrpt-bib.bib} % Specify the bibliography file
 
 % This needs to be the last package loaded
@@ -51,6 +52,9 @@
 
 % Rename 'Contents' to 'Table of Contents'
 \renewcommand{\contentsname}{Table of Contents}
+
+\usepackage[section]{tocbibind}
+
 
 % Now we will begin writing the document.
 \begin{document}
@@ -148,10 +152,7 @@ more traditional ways of generating a report.  I hope to convince the
 reader that using this technology is superior to writing the document
 in a WYSIWYG word processor.
 
-% Next, we need to make a Table of Contents, List of Figures and 
-% List of Tables.  You will most likely need to run LaTeX twice to
-% get these correct.  The first pass for LaTeX to figure out the
-% labels, and the second pass to put in the right references.
+% TODO: Make this single spaced
 \tableofcontents
 \listoffigures
 \listoftables
@@ -456,14 +457,7 @@ of fuss.
 % Here, we insert a References section, which will be formatted properly.
 % The list of works you have referenced should be specified in the preamble.
 % In this template, the file is uw-wkrpt-bib.bib.
-%
-% Note, you will need to process the document in a certain order.  First,
-% run LaTeX.  The % first pass will allow LaTeX to build a list of 
-% references, it may % emit warning messages such as:
-%   LaTeX Warning: Reference `app:gnugpl' on page 4 undefined on input line 277.
-%   LaTeX Warning: There were undefined references.
-% This is normal.  Now you run BiBTeX in order to generate the proper
-% layout for the references.  After this, you run LaTeX once more.
+
 \printbibliography[heading=bibintoc]
 
 \section{Acknowledgements}

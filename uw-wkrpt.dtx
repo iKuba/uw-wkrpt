@@ -586,14 +586,6 @@
 % This command is analogous to the standard \LaTeXe{} command.
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\bibliography}
-% The |\bibliography| command is used to insert the bibliography, or
-% ``References'' section.  This should come after the |\backmatter|
-% command, and refer to a B\textsc{ib}\hspace{-0.1ex}\TeX{} database.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \section{Implementation}
 % \iffalse
 %<*class>
@@ -884,7 +876,7 @@
 % Then, the letter is set to single-spaced, since it is not part of the
 % report; but rather an insert.
 %    \begin{macrocode}
-  \singlespacing%
+    \singlespacing%
 %    \end{macrocode}
 %
 % The header block is created.  First, the author and the author's
@@ -1181,16 +1173,11 @@
 % spacing between items.
 % The table of contents should list itself in Software Engineering reports.
 %    \begin{macrocode}
-\newcommand{\toc@intoc}{\relax}
-\renewcommand{\toc@intoc}{%
-  \addcontentsline{toc}{section}{Table of Contents}}
 \let\tableofcontents@rig\tableofcontents
 \renewcommand{\tableofcontents}{%
   \clearpage
-  \begin{singlespacing}
   \setlength{\parskip}{0pt}
-  \tableofcontents@rig \toc@intoc \par
-  \end{singlespacing}
+  \tableofcontents@rig \par
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1210,36 +1197,9 @@
 %
 % \subsubsection{Lists of stuff}
 %
-% \begin{macro}{\listoffigures@intoc}
-% \begin{macro}{\listoftables@intoc}
-% The ``List of Figures'' and ``List of Tables'' should not be 
-% mentioned in the Tables of Contents, according to Section 9.9.1 
-% of the CESRM~\cite{ref:cesrm}.  This is the default behaviour for
-% \LaTeX{}.
-%    \begin{macrocode}
-\newcommand{\listoffigures@intoc}{\relax}
-\newcommand{\listoftables@intoc}{\relax}
-%    \end{macrocode}
-%
-% However, Section 2 of the E\&CE~\cite{ref:ecewrg} and the
-% SE~\cite{ref:sewrg} guidelines state that they must be listed.  
-% So we add the ``List of Figures'' and ``List of Tables'' to the 
-% ``Table of Contents''.
-%    \begin{macrocode}
-
-\renewcommand{\listoffigures@intoc}{%
-  \addcontentsline{toc}{section}{List of Figures}}
-\renewcommand{\listoftables@intoc}{%
-  \addcontentsline{toc}{section}{List of Tables}}
-
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-%
 % \begin{macro}{\listoffigures}
 % We ensure that the ``List of Figures'' is on a separate page and
 % single-spaced. The spacing provided by |\parskip| is sufficient. 
-% Also included is |\listoffigures@intoc| to respect the settings above.
 %
 % The SE guidlines require that the entries are left-justified and not
 % indented. Furthermore, we include the full label, eg ``Figure 1-2''.
@@ -1254,9 +1214,7 @@
 \let\listoffigures@rig\listoffigures
 \renewcommand{\listoffigures}{%
   \clearpage
-  \begin{singlespacing}
-  \listoffigures@rig \listoffigures@intoc%
-  \end{singlespacing}
+  \listoffigures@rig%
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1275,9 +1233,7 @@
 \let\listoftables@rig\listoftables
 \renewcommand{\listoftables}{%
   \clearpage
-  \begin{singlespacing}
-  \listoftables@rig \listoftables@intoc%
-  \end{singlespacing}
+  \listoftables@rig%
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1327,67 +1283,6 @@
 % \end{environment}
 % \changes{v2.8}{2012/04/24}{Modify the table/figure labels for SE reports.}
 %
-% \subsection{References}
-%
-% Every paper needs a ``References'' section.  Section 9.9.5 of the
-% CESRM~\cite{ref:cesrm} does not set any bibliography style.  Section 2
-% of the E\&CE~\cite{ref:ecewrg} and the SE~\cite{ref:sewrg} guidelines
-% require the use of the IEEE Computer Society
-% style~\cite{ref:ieeecsbib}.  The Math guidelines~\cite{ref:mwrg}
-% appear to specify a style similar to the IEEE's.
-%
-% The IEEE Transactions bibliography style is almost identical to that
-% of the IEEE Computer Society style.  An implementation of this ships
-% with almost every \LaTeX{} installation, so we will call that instead.
-% The only difference is that |@ELECTRONIC{}| does not exist as a type
-% of citation, but this can be emulated with |@MISC{}|.
-%
-% For SE reports, the bibliography style should be handled in the .tex file,
-% with the ``biblatex'' package.
-%
-% In the future, I may consider adding support for the more recent IEEE
-% Transactions style, but only after it ships with the major \TeX{}
-% distributions.  As well, I would consider using any styles that the
-% IEEE Computer Society implement.
-%
-% \begin{macro}{\bibliography}
-% Add the References section to the Table of Contents.  As well, make it
-% single spaced.
-%    \begin{macrocode}
-\let\bib@rig\bibliography
-\renewcommand{\bibliography}[1]{%
-  \clearpage
-  \begin{singlespacing}
-  \bibliography@intoc \bib@rig{#1}\par
-  \end{singlespacing}
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\bibliography@intoc}
-% According to Section 9.9.1 of the CESRM~\cite{ref:cesrm}, the
-% References section is actually a section that comes before the
-% Appendices.
-%    \begin{macrocode}
-\newcommand{\refn@me}{References}
-\newcommand{\bibliography@intoc}{%
-  \renewcommand{\refname}{%
-    \addtocounter{section}{1}%
-    \arabic{section}\hspace{2.5ex}\refn@me%
-    \addcontentsline{toc}{section}{%
-      \numberline{\arabic{section}}{\refn@me}}}%
-}
-%    \end{macrocode}
-%
-% However the Math~\cite{ref:mwrg}, E\&CE~\cite{ref:ecewrg}, and
-% SE~\cite{ref:sewrg} guidelines state that the 
-% |\bibliography|\marg{file} should come after |\backmatter|, since 
-% it should not have a section number.
-%    \begin{macrocode}
-\renewcommand{\bibliography@intoc}{%
-    \addcontentsline{toc}{section}{\refn@me}}%
-%    \end{macrocode}
-% \end{macro}
 % \iffalse
 %</class>
 % \fi
