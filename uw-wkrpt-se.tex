@@ -55,6 +55,12 @@
 
 \usepackage[section]{tocbibind}
 
+\usepackage{tocloft}
+% Dots for ToC/Lists
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+
 
 % Now we will begin writing the document.
 \begin{document}

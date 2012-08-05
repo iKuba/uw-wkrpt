@@ -1166,19 +1166,6 @@
 %
 % \subsection{Tables and Lists} \label{sec:toc}
 %
-% \subsubsection{Table of contents}
-%
-% Between the heading of each section, and the right-justified page
-% numbers, there should be dotted tab leaders to lead the eye across the
-% table.  By default, sections did not have this behaviour, although
-% subsections did.  The following code makes it apply to all.
-%    \begin{macrocode}
-\RequirePackage[titles]{tocloft}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
-\renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
-%    \end{macrocode}
-%
 % \subsubsection{Lists of stuff}
 %
 % \begin{macro}{\listoffigures}
@@ -1188,6 +1175,7 @@
 % The SE guidlines require that the entries are left-justified and not
 % indented. Furthermore, we include the full label, eg ``Figure 1-2''.
 %    \begin{macrocode}
+\RequirePackage[titles]{tocloft}
 \setlength{\cftfigindent}{0pt}
 \newlength{\myfiglen}
 \renewcommand{\cftfigpresnum}{\figurename\enspace}
