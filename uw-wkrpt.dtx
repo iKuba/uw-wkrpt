@@ -262,23 +262,6 @@
 % because she last attended school in her 1A term.
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\chair}
-% The |\chair|\marg{text} command defines the very important person to
-% whom your letter of submittal is submitted.
-% From Section 9.9.1 of the CESRM~\cite{ref:cesrm}:
-% \begin{quote}
-%   If this is your first report (except if you are in Arts, Math, AHS,
-%   Geography or Science) address your letter to Mr. B. Lumsden,
-%   Director, Co-operative Education \& Career Services.  If it is not 
-%   your first report or if you are in Arts, Math, Geography or Science,
-%   direct your letter to the Department Chair. If you are in AHS, your
-%   letter should be addressed to the Associate Dean of your faculty.^^A
-%   \footnote{This statement was quoted on 24 April 2003.}
-% \end{quote}
-% In Software Engineering, the letter of submittal should be addressed to
-% the Director of Software Engineering.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\chairaddress}
 % The |\chairaddress|\marg{text} command defines the address to which
 % you will send your report.  Like the |\address| command, you should
@@ -348,7 +331,6 @@
 % \par^^A Insert a paragraph here to flush the floats.
 % \begin{DescribeMacro}{\theuserid}
 % \begin{DescribeMacro}{\theterm}
-% \begin{DescribeMacro}{\thechair}
 % \begin{DescribeMacro}{\thechairaddress}
 % \begin{DescribeMacro}{\thedate}
 % \begin{DescribeMacro}{\theconfidential}
@@ -374,7 +356,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -742,7 +723,6 @@
 % \begin{macro}{\faculty}
 % \begin{macro}{\userid}
 % \begin{macro}{\term}
-% \begin{macro}{\chair}
 % \begin{macro}{\chairaddress}
 % New variables which are defined.  These, like the ones
 % above, are used to construct the title page.  As well, they can be
@@ -771,16 +751,12 @@
 \newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
   \newcommand{\@term}{\ClassError{uw-wkrpt}%
     {No \noexpand\term given}{}}
-\newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
-  \newcommand{\@chair}{\ClassError{uw-wkrpt}%
-    {No \noexpand\chair given}{}}
 \newcommand{\chairaddress}[1]{\renewcommand{\@chairaddress}{#1}}
   \newcommand{\@chairaddress}{\ClassError{uw-wkrpt}%
     {No \noexpand\chairaddress given}{}}
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -810,7 +786,6 @@
 % \begin{macro}{\thefaculty}
 % \begin{macro}{\theuserid}
 % \begin{macro}{\theterm}
-% \begin{macro}{\thechair}
 % \begin{macro}{\thechairaddress}
 % The following commands are defined to access these values of these
 % new variables in case the author wishes to refer to them within the 
@@ -825,12 +800,10 @@
 \newcommand{\thefaculty}{\@faculty}
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theterm}{\@term}
-\newcommand{\thechair}{\@chair}
 \newcommand{\thechairaddress}{\@chairaddress}
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -959,8 +932,8 @@
 %    \begin{macrocode}
   \noindent\@@author\\\@address\par\noindent%
   \@@date \par\noindent%
-  \@chair, Director\\*\@chairaddress\par\noindent
-  Dear \@chair:%
+  Dr.\ Andrew\ Morton, Director\\*\@chairaddress\par\noindent
+  Dear Sir:%
 
     \par}
 %    \end{macrocode}
@@ -1035,8 +1008,6 @@
   \global\let\@employeraddress\@empty
   \global\let\address\relax
   \global\let\@address\@empty
-  \global\let\chair\relax
-  \global\let\@chair\@empty
   \global\let\chairaddress\relax
   \global\let\@chairaddress\@empty
   \global\let\faculty\relax
