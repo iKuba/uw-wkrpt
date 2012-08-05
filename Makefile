@@ -53,7 +53,7 @@ TEXFILES=\
 
 .PHONY : all example pdf clean
 
-all : $(PACKAGE).cls $(PACKAGE).pdf ;
+all : example
 
 pdf : $(PACKAGE).pdf ;
 
