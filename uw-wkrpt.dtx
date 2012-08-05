@@ -146,11 +146,6 @@
 % \ref{sec:document},) and the letter of submittal (see Section 
 % \ref{sec:prelim}.)
 %
-% \begin{DescribeMacro}{\uwid}
-% The |\uwid|\marg{text} command defines the author's student 
-% identification number.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\address}
 % The |\address|\marg{text} command defines the author's home address.
 % Since an address can span multiple lines, each line is separated with 
@@ -176,11 +171,6 @@
 % or in London, England:
 % \begin{verbatim}\employeraddress{London, UK}\end{verbatim}
 % \end{DescribeMacro}
-%
-% \begin{DescribeMacro}{\userid}
-% The |\userid|\marg{text} command defines the author's student id (username).
-% \end{DescribeMacro}
-% \changes{v2.8}{2012/04/24}{Add \textbackslash userid command.}
 %
 % \begin{DescribeMacro}{\term}
 % The |\term|\marg{text} command defines the previous academic term
@@ -226,7 +216,6 @@
 %
 % \subsubsection{Accessing values}
 %
-% \begin{DescribeMacro}{\theuwid}
 % \begin{DescribeMacro}{\theaddress}
 % \begin{DescribeMacro}{\theemployer}
 % \begin{DescribeMacro}{\theemployeraddress}
@@ -238,9 +227,7 @@
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
-% \end{DescribeMacro}
 % \par^^A Insert a paragraph here to flush the floats.
-% \begin{DescribeMacro}{\theuserid}
 % \begin{DescribeMacro}{\theterm}
 % \begin{DescribeMacro}{\theconfidential}
 % Here is a more comprehensive example:
@@ -265,7 +252,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 %
@@ -408,11 +394,9 @@
 %
 % \subsection{Manditory and optional values}
 %
-% \begin{macro}{\uwid}
 % \begin{macro}{\address}
 % \begin{macro}{\employer}
 % \begin{macro}{\employeraddress}
-% \begin{macro}{\userid}
 % \begin{macro}{\term}
 % New variables which are defined.  These, like the ones
 % above, are used to construct the title page.  As well, they can be
@@ -420,9 +404,6 @@
 %
 % The following are manditory values, see Section \ref{sec:mandvalues}.
 %    \begin{macrocode}
-\newcommand{\uwid}[1]{\renewcommand{\@uwid}{#1}}
-  \newcommand{\@uwid}{\ClassError{uw-wkrpt}%
-    {No \noexpand\uwid given}{}}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
   \newcommand{\@address}{\ClassError{uw-wkrpt}%
     {No \noexpand\address given}{}}
@@ -432,17 +413,11 @@
 \newcommand{\employeraddress}[1]{\renewcommand{\@employeraddress}{#1}}
   \newcommand{\@employeraddress}{\ClassError{uw-wkrpt}%
     {No \noexpand\employeraddress given}{}}
-\newcommand{\userid}[1]{\renewcommand{\@userid}{#1}}
-  \newcommand{\@userid}{\ClassError{uw-wkrpt}%
-    {No \noexpand\userid given}{}}
 \newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
   \newcommand{\@term}{\ClassError{uw-wkrpt}%
     {No \noexpand\term given}{}}
 %    \end{macrocode}
-% \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -458,26 +433,20 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\theuwid}
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
 % \begin{macro}{\theemployeraddress}
-% \begin{macro}{\theuserid}
 % \begin{macro}{\theterm}
 % The following commands are defined to access these values of these
 % new variables in case the author wishes to refer to them within the 
 % document.
 %    \begin{macrocode}
-\newcommand{\theuwid}{\@uwid}
 \newcommand{\theaddress}{\@address}
 \newcommand{\theemployer}{\@employer}
 \newcommand{\theemployeraddress}{\@employeraddress}
-\newcommand{\theuserid}{\@userid}
 \newcommand{\theterm}{\@term}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -509,8 +478,10 @@
     \LARGE \thetitle \par
   \end{center}\par
   \null\vfill%
-  \begin{center}%
-    {\large \@employer\\ \@employeraddress\par \textit{\@confidential}}%
+  \begin{center}
+    \large \@employer\\
+    \@employeraddress\par
+    \textit{\@confidential}
   \end{center}\par
   \null\vfill%
   \begin{center}{%
@@ -518,7 +489,8 @@
     \textbf{Prepared by}\\
       \begin{tabular}[t]{c}%
         \theauthor\\
-        Student ID: \@uwid\\ User ID: \@userid\\
+        Student ID: \theuwid\\
+        User ID: \theuserid\\
         \@term{} Software Engineering
       \end{tabular}\par}%
     \thedate \par%
@@ -592,7 +564,7 @@
   Sincerely,
   \vspace*{0.75in}\\
   \indent\theauthor\\
-  \indent Student ID: \@uwid
+  \indent Student ID: \theuwid
   \end{minipage}
 %    \end{macrocode}
 %
@@ -601,10 +573,6 @@
 %
 % All the excess variables that were used can now be let go.
 %    \begin{macrocode}
-  \global\let\uwid\relax
-  \global\let\@uwid\@empty
-  \global\let\userid\relax
-  \global\let\@userid\@empty
   \global\let\employer\relax
   \global\let\@employer\@empty
   \global\let\employeraddress\relax
