@@ -656,15 +656,6 @@
 \newenvironment{letter}{%
 %    \end{macrocode}
 %
-% We turn off page numbering for the letter.  We use |\everyvbox| to
-% suppress the page numbering on every page.  This is much better than
-% trying to save the page numbering and then restore it.
-% \changes{v2.0}{2002/04/26}{Smarter page number suppression.}
-%    \begin{macrocode}
-  \everyvbox={\thispagestyle{empty}}%
-  \setcounter{page}{2}%
-%    \end{macrocode}
-%
 % We use the standard business letter format, which means paragraphs
 % are not indented.
 %    \begin{macrocode}
