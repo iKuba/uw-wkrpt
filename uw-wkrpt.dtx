@@ -1193,16 +1193,6 @@
 \newcommand{\@setpostletterpagenum}{\setcounter{page}{0}}
 %    \end{macrocode}
 %
-% Section 9.8.5 of the CESRM~\cite{ref:cesrm} states that the ``Table of
-% Contents'' must start on page ii, contradicting Section 9.9.1 above.  
-% However, this does not take into account letters of submittal that are
-% longer than one page.  The following code is commented out as it makes 
-% no sense to follow this requirement.
-%    \begin{macrocode}
-%\newcommand{\@setletterpagenum}{}
-%\newcommand{\@setpostletterpagenum}{\setcounter{page}{1}}
-%    \end{macrocode}
-%
 % Section 2 of the E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} 
 % guidelines require that the submittal letter be page ii.  
 % The ``Table of Contents'' then follow in logical order, after any
@@ -1215,12 +1205,6 @@
 % \end{macro}
 %
 % \subsubsection{Table of contents}
-% In \LaTeX, the default name for a ``Table of Contents'' section is 
-% ``Contents''.  This is changed to follow Section 9.9.1 of the 
-% CESRM~\cite{ref:cesrm}.
-%    \begin{macrocode}
-\renewcommand{\contentsname}{Table of Contents}
-%    \end{macrocode}
 %
 % \begin{macro}{\tableofcontents}
 % The table should be single-spaced, as |\parskip| should give adequate
