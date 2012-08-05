@@ -266,12 +266,6 @@
 % because she last attended school in her 1A term.
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\program}
-% The |\program|\marg{text} command defines the author's current
-% program.  A student in Computer Science would write
-% \begin{verbatim}\program{Computer Science}\end{verbatim}
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\chair}
 % The |\chair|\marg{text} command defines the very important person to
 % whom your letter of submittal is submitted.
@@ -359,7 +353,6 @@
 % \begin{DescribeMacro}{\theuserid}
 % \begin{DescribeMacro}{\theemail}
 % \begin{DescribeMacro}{\theterm}
-% \begin{DescribeMacro}{\theprogram}
 % \begin{DescribeMacro}{\thechair}
 % \begin{DescribeMacro}{\thechairaddress}
 % \begin{DescribeMacro}{\thedate}
@@ -756,7 +749,6 @@
 % \begin{macro}{\userid}
 % \begin{macro}{\email}
 % \begin{macro}{\term}
-% \begin{macro}{\program}
 % \begin{macro}{\chair}
 % \begin{macro}{\chairaddress}
 % New variables which are defined.  These, like the ones
@@ -789,9 +781,6 @@
 \newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
   \newcommand{\@term}{\ClassError{uw-wkrpt}%
     {No \noexpand\term given}{}}
-\newcommand{\program}[1]{\renewcommand{\@program}{#1}}
-  \newcommand{\@program}{\ClassError{uw-wkrpt}%
-    {No \noexpand\program given}{}}
 \newcommand{\chair}[1]{\renewcommand{\@chair}{#1}}
   \newcommand{\@chair}{\ClassError{uw-wkrpt}%
     {No \noexpand\chair given}{}}
@@ -801,7 +790,6 @@
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -834,7 +822,6 @@
 % \begin{macro}{\theuserid}
 % \begin{macro}{\theemail}
 % \begin{macro}{\theterm}
-% \begin{macro}{\theprogram}
 % \begin{macro}{\thechair}
 % \begin{macro}{\thechairaddress}
 % The following commands are defined to access these values of these
@@ -851,13 +838,11 @@
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theemail}{\@email}
 \newcommand{\theterm}{\@term}
-\newcommand{\theprogram}{\@program}
 \newcommand{\thechair}{\@chair}
 \newcommand{\thechairaddress}{\@chairaddress}
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -910,7 +895,7 @@
       \begin{tabular}[t]{c}%
         \@author\\
         Student ID: \@uwid\\ User ID: \@userid\\
-        \@term{} \@program
+        \@term{} Software Engineering
       \end{tabular}\par}%
     \@date \par%
   \end{center}
@@ -1074,8 +1059,6 @@
   \global\let\@faculty\@empty
   \global\let\term\relax
   \global\let\@term\@empty
-  \global\let\program\relax
-  \global\let\@program\@empty
   \global\let\confidential\relax
   \global\let\@confidential\@empty
 }
