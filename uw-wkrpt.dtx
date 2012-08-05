@@ -868,13 +868,7 @@
 % \changes{v2.0}{2002/04/26}{Smarter page number suppression.}
 %    \begin{macrocode}
   \everyvbox={\thispagestyle{empty}}%
-%    \end{macrocode}
-%
-% Using |\@setletterpagenum|, we decide on the logical page number for
-% the letter of submittal.  For the declaration of this macro, see
-% Section \ref{sec:toc}.
-%    \begin{macrocode}
-  \@setletterpagenum%
+  \setcounter{page}{2}%
 %    \end{macrocode}
 %
 % We use the standard business letter format, which means paragraphs
@@ -1179,26 +1173,6 @@
 % \end{macro}
 %
 % \subsection{Tables and Lists} \label{sec:toc}
-%
-% These functions are used to decide what page numbers are used for
-% the front matter section.
-%
-% \begin{macro}{\@setletterpagenum}
-% Section 9.9.1, Figure 3, of the CESRM shows an example ``Table of
-% Contents'' that begins on page i.  We will take this as the correct
-% example.
-%    \begin{macrocode}
-\newcommand{\@setletterpagenum}{}
-%    \end{macrocode}
-%
-% Section 2 of the E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} 
-% guidelines require that the submittal letter be page ii.  
-% The ``Table of Contents'' then follow in logical order, after any
-% preliminary sections.
-%    \begin{macrocode}
-\renewcommand{\@setletterpagenum}{\setcounter{page}{2}}
-%    \end{macrocode}
-% \end{macro}
 %
 % \subsubsection{Table of contents}
 %
