@@ -243,11 +243,6 @@
 % \begin{verbatim}\employeraddress{London, UK}\end{verbatim}
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\faculty}
-% The |\faculty|\marg{text} command defines the faculty or program
-% the author is in.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\userid}
 % The |\userid|\marg{text} command defines the author's student id (username).
 % \end{DescribeMacro}
@@ -316,12 +311,10 @@
 % \begin{DescribeMacro}{\theaddress}
 % \begin{DescribeMacro}{\theemployer}
 % \begin{DescribeMacro}{\theemployeraddress}
-% \begin{DescribeMacro}{\thefaculty}
 % Each of these commands reproduce the text defined by the respective
 % command defined in the previous sections.  Although these macros
 % can be used anywhere in the report, they are used primarily in the 
 % \textbf{letter} environment, see Section \ref{sec:prelim}.
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -720,7 +713,6 @@
 % \begin{macro}{\address}
 % \begin{macro}{\employer}
 % \begin{macro}{\employeraddress}
-% \begin{macro}{\faculty}
 % \begin{macro}{\userid}
 % \begin{macro}{\term}
 % \begin{macro}{\chairaddress}
@@ -742,9 +734,6 @@
 \newcommand{\employeraddress}[1]{\renewcommand{\@employeraddress}{#1}}
   \newcommand{\@employeraddress}{\ClassError{uw-wkrpt}%
     {No \noexpand\employeraddress given}{}}
-\newcommand{\faculty}[1]{\renewcommand{\@faculty}{#1}}
-  \newcommand{\@faculty}{\ClassError{uw-wkrpt}%
-    {No \noexpand\faculty given}{}}
 \newcommand{\userid}[1]{\renewcommand{\@userid}{#1}}
   \newcommand{\@userid}{\ClassError{uw-wkrpt}%
     {No \noexpand\userid given}{}}
@@ -757,7 +746,6 @@
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -783,7 +771,6 @@
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
 % \begin{macro}{\theemployeraddress}
-% \begin{macro}{\thefaculty}
 % \begin{macro}{\theuserid}
 % \begin{macro}{\theterm}
 % \begin{macro}{\thechairaddress}
@@ -797,14 +784,12 @@
 \newcommand{\theaddress}{\@address}
 \newcommand{\theemployer}{\@employer}
 \newcommand{\theemployeraddress}{\@employeraddress}
-\newcommand{\thefaculty}{\@faculty}
 \newcommand{\theuserid}{\@userid}
 \newcommand{\theterm}{\@term}
 \newcommand{\thechairaddress}{\@chairaddress}
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -837,7 +822,7 @@
   \let\footnoterule\relax
   \let \footnote \thanks
   \begin{center}
-    {\large \MakeTextUppercase{University of Waterloo} \par \@faculty}%
+    {\large \MakeTextUppercase{University of Waterloo} \par Software Engineering}%
   \end{center}
   \null\vfill%
   \begin{center}%
@@ -1010,8 +995,6 @@
   \global\let\@address\@empty
   \global\let\chairaddress\relax
   \global\let\@chairaddress\@empty
-  \global\let\faculty\relax
-  \global\let\@faculty\@empty
   \global\let\term\relax
   \global\let\@term\@empty
   \global\let\confidential\relax
