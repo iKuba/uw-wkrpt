@@ -1029,21 +1029,6 @@
 % \changes{v2.7}{2011/09/16}{Back matter is single-spaced in E\&CE.}
 % \end{macro}
 %
-% \begin{environment}{summary}
-% Much like the \textbf{abstract} environment in standard \LaTeX, the
-% \textbf{summary} environment should be used for typesetting summaries.
-% However, all it does is suppress the section numbers.  This
-% environment should only be used by people following the
-% CESRM~\cite{ref:cesrm} guidelines.  Other programs place their
-% ``Executive Summary'', ``Summary'', or ``Abstract'' in different
-% places.
-%    \begin{macrocode}
-\newenvironment{summary}
-  {\@notmainsect}
-  {\@mainsect}
-%    \end{macrocode}
-% \end{environment}
-%
 % \begin{macro}{\@notmainsect}
 % This is the macro that turns off section numbers.  It does this by
 % redefining certain functions to be much simpler, which implies that it
