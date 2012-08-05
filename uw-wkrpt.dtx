@@ -305,15 +305,6 @@
 % environment will be ignored.
 % \end{DescribeEnv}
 %
-% \begin{DescribeMacro}{\maketitle}
-% To create the title page, the |\maketitle| command is used.  This
-% command should be invoked before any other text.  All the necessary
-% information is contained upon this page.  A clear cover should be used
-% to let this show through.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \subsubsection{Preliminary pages} \label{sec:prelim}
 %
 % \begin{DescribeEnv}{letter}
@@ -460,21 +451,8 @@
 %
 % \subsection{Manditory and optional values}
 %
-% We override the standard \LaTeX{} commands |\title|, |\author|, and
+% We override the standard \LaTeX{} commands |\author|, and
 % |\date|.
-%
-% \begin{macro}{\title}
-% The title must be defined, and is therefore enforced.  See Section
-% \ref{sec:mandvalues}.
-%    \begin{macrocode}
-\renewcommand{\title}[1]{%
-  \renewcommand{\@title}{#1}%
-  \renewcommand{\@@title}{#1}}
-\newcommand{\@@title}{\ClassError{uw-wkrpt}%
-  {No \noexpand\title given}{}}
-%    \end{macrocode}
-% \changes{v2.0}{2003/04/26}{\LaTeXe{} style definitions.}
-% \end{macro}
 %
 % \begin{macro}{\author}
 % The author must be defined, and is therefore enforced.  See Section
@@ -551,7 +529,6 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\thetitle}
 % \begin{macro}{\theauthor}
 % \begin{macro}{\thedate}
 % \begin{macro}{\theuwid}
@@ -564,7 +541,6 @@
 % new variables in case the author wishes to refer to them within the 
 % document.
 %    \begin{macrocode}
-\newcommand{\thetitle}{\@@title}
 \newcommand{\theauthor}{\@@author}
 \newcommand{\theuwid}{\@uwid}
 \newcommand{\theaddress}{\@address}
@@ -583,7 +559,6 @@
 % \end{macro}
 % \end{macro}
 % \end{macro}
-% \end{macro}
 %
 % \subsection{Title page}
 %
@@ -593,13 +568,13 @@
 \RequirePackage{textcase}
 %    \end{macrocode}
 %
-% \begin{macro}{\maketitle}
+% \begin{macro}{\mymaketitle}
 % The title page must be laid out in a certain format, for an example
 % see Figure 1 of Section 9.9.1 of the CESRM~\cite{ref:cesrm}.
 % There are minor changes to the Software Engineering format, but this is
 % mainly a matter of personal preference.
 %    \begin{macrocode}
-\renewcommand{\maketitle}{%
+\newcommand{\mymaketitle}{%
   \begin{titlepage}
   \begin{singlespacing}
   \let\footnotesize\small
@@ -609,7 +584,7 @@
   \end{center}
   \null\vfill%
   \begin{center}%
-    \LARGE \@title \par
+    \LARGE \thetitle \par
   \end{center}\par
   \null\vfill%
   \begin{center}%
@@ -633,11 +608,9 @@
 % After defining the title page, commands we no longer need are let go.
 %    \begin{macrocode}
   \setcounter{footnote}{0}%
-  \global\let\maketitle\relax
+  \global\let\mymaketitle\relax
   \global\let\@author\@empty
   \global\let\@date\@empty
-  \global\let\@title\@empty
-  \global\let\title\relax
   \global\let\author\relax
   \global\let\date\relax
   \global\let\and\relax
@@ -727,7 +700,6 @@
 % All the excess variables that were used can now be let go.
 %    \begin{macrocode}
   \global\let\@@author\@empty
-  \global\let\@@title\@empty
   \global\let\@@date\@empty
   \global\let\uwid\relax
   \global\let\@uwid\@empty
