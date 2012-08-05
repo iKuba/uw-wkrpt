@@ -139,44 +139,6 @@
 % \tableofcontents
 % \end{multicols}
 %
-% \section{Introduction}
-%
-% At the University of Waterloo,^^A
-% \footnote{\url{http://www.uwaterloo.ca/}}
-% thousands of undergraduate students participate
-% in the co-operative education program: a partnership between the
-% University and businesses world-wide to provide first-hand experience
-% for students.
-%
-% As part of this program, students write work reports---both to enrich
-% their own literary skills, and also to provide employers with
-% research that is professional, analytical, and useful.
-%
-% \section{Justification}
-%
-% The Co-operative Education and Career Services (CECS) department
-% mandates certain formatting and stylistic conventions.  In addition,
-% each department may impose their own conventions above and beyond
-% the general CECS conventions.  Work reports are checked to ensure
-% that they conform.
-%
-% \noindent
-% Each macro is prefixed by a backslash, and is followed by an
-% alphabetic identifier.  Parameters to these macros are encased within
-% curly braces.  On line 1, we declare that this document uses the
-% \textsf{article} document class, which determines certain formatting
-% options.  The rest of the document is created with a |\begin{document}|
-% command, and finished with an |\end{document}|.
-%
-% Although the layout of the final text is not immediately obvious
-% from the input that is keyed in, the input language is rather legible.
-% One can argue that using a plain text interface allows the author
-% to concentrate on the content of his message, and not the formatting.
-% Since the computer does most of the formatting work, it is only
-% necessary to proofread the document and tweak minor details.
-%
-% \subsection{The preamble} \label{sec:preamble}
-%
 % \subsubsection{Mandatory values} \label{sec:mandvalues}
 %
 % The following commands define initial values that must be set.
@@ -411,35 +373,6 @@
 % in the \textsf{letter} document class.
 % \end{DescribeEnv}
 %
-% \begin{DescribeMacro}{\section}
-% The |\section|\oarg{short}\marg{text} command is set to suppress any
-% section numbering in the preliminary pages.  The \meta{text} argument
-% specifies the section heading, and \meta{short} specifies the optional
-% short heading for inclusion in the ``Table of Contents''.
-%
-% Unlike |\section*|\marg{text}, these sections are mentioned
-% in the Table of Contents.  While Section 9.9.1 of the
-% CESRM~\cite{ref:cesrm} states
-% that preliminary pages do not appear in the Table of Contents, this is
-% not an issue since their are nor proper |\section|s in a CESRM report.
-% If there is a ``Summary'' section, it appears in the Body.  For a Math
-% report~\cite{ref:mwrg}, the ``Summary'' is the only section in the 
-% preliminary pages,
-% and it should be listed in the Table of Contents.  For 
-% E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} reports, all 
-% preliminary sections are listed.
-%
-% Section 9.9.3 of the CESRM recommends that section numbers appear only
-% in the body of the report, see Section \ref{sec:body}.  This
-% recommendation becomes a requirement in other programs.
-%
-% As well, each |\section| is printed on a separate page.  This is
-% implied by the CESRM, and required for other programs.  Since it does
-% not hurt to put them on separate pages, it is always done.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\tableofcontents}
 % \begin{DescribeMacro}{\listoffigures}
 % \begin{DescribeMacro}{\listoftables}
@@ -463,53 +396,6 @@
 % \end{DescribeMacro}
 %
 % \subsubsection{The body} \label{sec:body}
-%
-% \begin{DescribeMacro}{\section}
-% \begin{DescribeMacro}{\subsection}
-% \begin{DescribeMacro}{\subsubsection}
-% The sectioning commands here will now provide numbered sections,
-% labelled with the appropriate heading.
-% \begingroup\center
-% \newcounter{oldsection}
-% \setcounter{oldsection}{\value{section}}
-% \newcounter{oldsubsection}
-% \setcounter{oldsubsection}{\value{subsection}}
-% \newcounter{oldsubsubsection}
-% \setcounter{oldsubsubsection}{\value{subsubsection}}
-% \setcounter{section}{0}
-% \renewcommand{\addcontentsline}[3]{}
-% \begin{minipage}[c]{\ExampleWidth-5mm}
-%   \section{Primary}
-%   \subsection{Primier}
-%   \subsubsection{Primo}
-%   \section{Secondary}
-%   \subsection{Deuxi\`eme}
-%   \subsubsection{Secundo}
-% \end{minipage}
-% \setcounter{section}{\value{oldsection}}
-% \setcounter{subsection}{\value{oldsubsection}}
-% \setcounter{subsubsection}{\value{oldsubsubsection}}
-% \begin{minipage}{\textwidth-\ExampleWidth}
-%   \fvset{xrightmargin=0pt}
-%   \begin{Verbatim}
-%     \begin{document}
-%
-%     \section{Primary}
-%     \subsection{Primier}
-%     \subsubsection{Primo}
-%     \section{Secondary}
-%     \subsection{Deuxi\`eme}
-%     \subsubsection{Secundo}
-%
-%     \end{document}
-%   \end{Verbatim}
-% \end{minipage}
-% \endcenter\endgroup
-%
-% These commands are analogous to the standard \LaTeXe{} commands.
-% \end{DescribeMacro}
-% \end{DescribeMacro}
-% \end{DescribeMacro}
 %
 % \begin{DescribeEnv}{figure}
 % \begin{DescribeEnv}{table}
