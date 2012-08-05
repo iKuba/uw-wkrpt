@@ -186,34 +186,6 @@
 % Some commands are completely optional and do not have to be included
 % in the preamble.
 %
-% \begin{DescribeMacro}{\confidential}
-% The |\confidential|\marg{text} command defines the confidentiality of
-% the report.  Most reports do not require this command.  Refer to
-% Section 9.7 of the CESRM~\cite{ref:cesrm} for more information.
-% As an example, if the report is rated as ``Confidential-1'':
-% \begin{verbatim}\confidential{Confidential-1}\end{verbatim}
-% 
-% Please be aware that there are certain restrictions for confidential
-% reports.  You must speak with your field co-ordinator or faculty
-% before undertaking a confidential report.  Most confidential reports
-% are not marked until the following term.  If you work for certain
-% corporations, your work report cannot be confidential.  If you are in
-% certain faculties, your work report cannot be confidential.  For more
-% information, see section 9.7 of the CESRM~\cite{ref:cesrm} and Section
-% 5 of the E\&CE~\cite{ref:ecewrg} and SE~\cite{ref:sewrg} guidelines.
-%
-% There are several levels of confidentiality:
-% \begin{description}
-% \item[SE-confidential] This is the only level of confidentiality for
-%                        Software Engineering reports. The report is placed in
-%                        an envelope marked ``SE-confidential'', and is treated
-%                        with care by the markers. No duplicates may be made.
-% \end{description}
-% Confidential reports are not eligible for an Outstanding grade.
-% For a detailed discussion of the levels of confidentiality, see
-% ``Confidential work term reports''~\cite{ref:confwtr}.
-% \end{DescribeMacro}
-%
 % \subsubsection{Accessing values}
 %
 % \begin{DescribeMacro}{\theaddress}
@@ -229,7 +201,6 @@
 % \end{DescribeMacro}
 % \par^^A Insert a paragraph here to flush the floats.
 % \begin{DescribeMacro}{\theterm}
-% \begin{DescribeMacro}{\theconfidential}
 % Here is a more comprehensive example:
 % \begingroup\center
 % \begin{minipage}[c]{\ExampleWidth-5mm}
@@ -252,7 +223,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 %
 % \subsection{The document} \label{sec:document}
@@ -423,16 +393,6 @@
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\confidential}
-% |\confidential| is an optional value, see Section \ref{sec:optvalues}.
-% If it is empty, it will be ignored.  Since most reports are
-% non-confidential, this is the default value.
-%    \begin{macrocode}
-\newcommand{\confidential}[1]{\renewcommand{\@confidential}{#1}}
-  \newcommand{\@confidential}{}
-%    \end{macrocode}
-% \end{macro}
-%
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
 % \begin{macro}{\theemployeraddress}
@@ -445,7 +405,6 @@
 \newcommand{\theemployer}{\@employer}
 \newcommand{\theemployeraddress}{\@employeraddress}
 \newcommand{\theterm}{\@term}
-\newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -481,7 +440,6 @@
   \begin{center}
     \large \@employer\\
     \@employeraddress\par
-    \textit{\@confidential}
   \end{center}\par
   \null\vfill%
   \begin{center}{%
@@ -581,8 +539,6 @@
   \global\let\@address\@empty
   \global\let\term\relax
   \global\let\@term\@empty
-  \global\let\confidential\relax
-  \global\let\@confidential\@empty
 }
 %    \end{macrocode}
 % \end{environment}
