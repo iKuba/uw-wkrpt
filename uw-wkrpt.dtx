@@ -253,10 +253,6 @@
 % \end{DescribeMacro}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid command.}
 %
-% \begin{DescribeMacro}{\email}
-% The |\email|\marg{text} command defines the author's e-mail address.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\term}
 % The |\term|\marg{text} command defines the previous academic term
 % the author was enrolled in.  For instance, if the author has only
@@ -351,7 +347,6 @@
 % \end{DescribeMacro}
 % \par^^A Insert a paragraph here to flush the floats.
 % \begin{DescribeMacro}{\theuserid}
-% \begin{DescribeMacro}{\theemail}
 % \begin{DescribeMacro}{\theterm}
 % \begin{DescribeMacro}{\thechair}
 % \begin{DescribeMacro}{\thechairaddress}
@@ -379,7 +374,6 @@
 %   \end{Verbatim}
 % \end{minipage}
 % \endcenter\endgroup
-% \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \end{DescribeMacro}
@@ -747,7 +741,6 @@
 % \begin{macro}{\employeraddress}
 % \begin{macro}{\faculty}
 % \begin{macro}{\userid}
-% \begin{macro}{\email}
 % \begin{macro}{\term}
 % \begin{macro}{\chair}
 % \begin{macro}{\chairaddress}
@@ -775,9 +768,6 @@
 \newcommand{\userid}[1]{\renewcommand{\@userid}{#1}}
   \newcommand{\@userid}{\ClassError{uw-wkrpt}%
     {No \noexpand\userid given}{}}
-\newcommand{\email}[1]{\renewcommand{\@email}{#1}}
-  \newcommand{\@email}{\ClassError{uw-wkrpt}%
-    {No \noexpand\email given}{}}
 \newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
   \newcommand{\@term}{\ClassError{uw-wkrpt}%
     {No \noexpand\term given}{}}
@@ -790,7 +780,6 @@
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Add \textbackslash userid field.}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -820,7 +809,6 @@
 % \begin{macro}{\theemployeraddress}
 % \begin{macro}{\thefaculty}
 % \begin{macro}{\theuserid}
-% \begin{macro}{\theemail}
 % \begin{macro}{\theterm}
 % \begin{macro}{\thechair}
 % \begin{macro}{\thechairaddress}
@@ -836,14 +824,12 @@
 \newcommand{\theemployeraddress}{\@employeraddress}
 \newcommand{\thefaculty}{\@faculty}
 \newcommand{\theuserid}{\@userid}
-\newcommand{\theemail}{\@email}
 \newcommand{\theterm}{\@term}
 \newcommand{\thechair}{\@chair}
 \newcommand{\thechairaddress}{\@chairaddress}
 \newcommand{\thedate}{\@@date}
 \newcommand{\theconfidential}{\@confidential}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -1043,8 +1029,6 @@
   \global\let\@uwid\@empty
   \global\let\userid\relax
   \global\let\@userid\@empty
-  \global\let\email\relax
-  \global\let\@email\@empty
   \global\let\employer\relax
   \global\let\@employer\@empty
   \global\let\employeraddress\relax
