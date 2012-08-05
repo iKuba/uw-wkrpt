@@ -122,9 +122,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FRONT MATTER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% \frontmatter will make the \section commands ignore their numbering,
-%% it will also use roman page numbers.
-\frontmatter
+\clearpage
+\pagenumbering{roman}
+\onehalfspacing
 
 % After this, we must create a letter of submission.
 \begin{letter}
@@ -180,9 +180,9 @@ in a WYSIWYG word processor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% REPORT BODY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% \main will make the \section commands numbered again,
-%% it will also use arabic page numbers.
-\mainmatter
+\clearpage
+\pagenumbering{arabic}
+\onehalfspacing
 
 % You must have an Introduction
 \section{Introduction}\label{sec:intro}
@@ -471,8 +471,7 @@ of fuss.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% BACK MATTER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% \backmatter will make the \section commands ignore their numbering,
-\backmatter
+\clearpage
 
 % Here, we insert a References section, which will be formatted properly.
 % The list of works you have referenced should be specified in the preamble.

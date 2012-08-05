@@ -362,15 +362,6 @@
 %
 % \subsubsection{Preliminary pages} \label{sec:prelim}
 %
-% \begin{DescribeMacro}{\frontmatter}
-% The |\frontmatter| command is used to tell \LaTeX{} that the next
-% sections should be typeset as preliminary pages.  This typically
-% involves lower-case roman page numbers.
-%
-% This command is analogous to the standard \LaTeXe{} command in the 
-% \textsf{book} document class.
-% \end{DescribeMacro}
-%
 % \begin{DescribeEnv}{letter}
 % The \textbf{letter} environment does most of the difficult work
 % involved in writing the letter of submittal.  When |\begin{letter}| is
@@ -473,14 +464,6 @@
 %
 % \subsubsection{The body} \label{sec:body}
 %
-% \begin{DescribeMacro}{\mainmatter}
-% The |\mainmatter| command is used to indicate the body of the report.
-% This turns section numbering back on, and causes an arabic page number to
-% appear on each page.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\section}
 % \begin{DescribeMacro}{\subsection}
 % \begin{DescribeMacro}{\subsubsection}
@@ -551,15 +534,6 @@
 % environments.
 % \end{DescribeEnv}
 % \end{DescribeEnv}
-%
-% \subsubsection{Back matter}
-%
-% \begin{DescribeMacro}{\backmatter}
-% The |\backmatter| command is used to indicate the back of the report.
-% This turns section numbering off once more.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
 %
 % \section{Implementation}
 % \iffalse
@@ -922,149 +896,6 @@
 }
 %    \end{macrocode}
 % \end{environment}
-%
-% \subsection{Formatting sections}
-% We shall emulate the |\frontmatter|, |\mainmatter|, and |\backmatter|
-% commands from the \textsf{book} document class.  Front matter pages 
-% are numbered with roman numerals; main and back matter pages are 
-% numbered with arabic numerals.  See Section 9.8.5 of the
-% CESRM~\cite{ref:cesrm}.
-%
-% In the front and back matter, the |\section| command does not generate
-% headers with section numbers, but does enter them into the Table of
-% Contents.
-%
-% \begin{macro}{\frontmatter}
-% A fresh page is started, the sections are unnumbered, and the page
-% numbers are lower-case roman numberals.
-%    \begin{macrocode}
-\newcommand{\frontmatter}{%
-  \clearpage
-  \@notmainsect%
-  \pagenumbering{roman}%
-  \onehalfspacing
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\mainmatter}
-% A fresh page is started, the sections are numbered, and the page
-% numbers are arabic numerals.
-%    \begin{macrocode}
-\newcommand{\mainmatter}{%
-  \clearpage
-  \onehalfspacing
-  \@mainsect%
-  \pagenumbering{arabic}%
-%    \end{macrocode}
-%
-% \begin{macro}{\dotzero}
-% \begin{macro}{\@secdotzerostart}
-% \begin{macro}{\@secdotzeroend}
-% The Math guidelines~\cite{ref:mwrg} imply that numbered |\section|s 
-% must be of the form ``1.0'', not the default ``1''.
-%
-%    \begin{macrocode}
-  \global\def\dotzero{}
-  \global\def\@secdotzerostart##1{}
-  \global\def\@secdotzeroend##1{}
-}
-%    \end{macrocode}
-%
-% \end{macro}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-%
-%
-% \begin{macro}{\backmatter}
-% A fresh page is started, and the sections are unnumbered.
-%    \begin{macrocode}
-\newcommand{\backmatter}{%
-  \clearpage
-  \@notmainsect%
-}
-%    \end{macrocode}
-% \changes{v2.3}{2003/05/09}{Numbered sections don't have page breaks in Math.}
-% \changes{v2.7}{2011/09/16}{Back matter is single-spaced in E\&CE.}
-% \end{macro}
-%
-% \begin{macro}{\@notmainsect}
-% This is the macro that turns off section numbers.  It does this by
-% redefining certain functions to be much simpler, which implies that it
-% no longer compensates from the prefixed number.
-%
-% This macro was inspired by the standard \LaTeX{} \textsf{book} class.
-%    \begin{macrocode}
-\newcommand{\@notmainsect}{%
-  \def\@sect##1##2##3##4##5##6[##7]##8{%
-    \@tempskipa ##5\relax
-    \ifdim \@tempskipa>\z@
-      \begingroup
-        ##6{%
-          \@hangfrom{\hskip ##3}%
-            \interlinepenalty \@M ##8\@@par}%
-      \endgroup
-      \csname ##1mark\endcsname{##7}%
-      \addcontentsline{toc}{##1}{##7}%
-    \else
-      \def\@svsechd{%
-        ##6{\hskip ##3\relax
-        \@svsec ##8}%
-        \csname ##1mark\endcsname{##7}%
-        \addcontentsline{toc}{##1}{##7}}%
-    \fi
-    \@xsect{##5}}%
-}
-%    \end{macrocode}
-% \end{macro}
-
-% \begin{macro}{\@mainsect}
-% This is the macro that turns on section numbers.
-% It redefines certain functions to be exactly like their standard forms.
-%
-% This macro was inspired by the standard \LaTeX{} \textsf{book} class.
-% \begin{macrocode}
-\newcommand{\@mainsect}{%
-  \def\@sect##1##2##3##4##5##6[##7]##8{%
-    \ifnum ##2>\c@secnumdepth
-      \let\@svsec\@empty
-    \else
-      \refstepcounter{##1}%
-      \@secdotzerostart{##1}
-      \protected@edef\@svsec{Appendix \@seccntformat{##1}\relax}%
-      \@secdotzeroend{##1}
-    \fi
-    \@tempskipa ##5\relax
-    \ifdim \@tempskipa>\z@
-      \begingroup
-        ##6{%
-          \@hangfrom{\hskip ##3\relax\@svsec}%
-            \interlinepenalty \@M ##8\@@par}%
-      \endgroup
-      \csname ##1mark\endcsname{##7}%
-      \addcontentsline{toc}{##1}{%
-        \ifnum ##2>\c@secnumdepth \else
-          \protect\numberline{Appendix \csname the##1\endcsname\dotzero}
-          \protect\phantom{Appendix }%
-        \fi
-        ##7}%
-    \else
-      \def\@svsechd{%
-        ##6{\hskip ##3\relax
-        \@svsec ##8}%
-        \csname ##1mark\endcsname{##7}%
-        \addcontentsline{toc}{##1}{%
-          \ifnum ##2>\c@secnumdepth \else
-            \protect\numberline{Appendix \csname the##1\endcsname\dotzero}
-            \protect\phantom{Appendix }%
-          \fi
-          ##7}}%
-    \fi
-    \@xsect{##5}}%
-}
-%    \end{macrocode}
-% \end{macro}
 %
 % \subsection{Tables and Lists} \label{sec:toc}
 %
