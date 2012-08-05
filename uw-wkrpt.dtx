@@ -1168,21 +1168,6 @@
 %
 % \subsubsection{Table of contents}
 %
-% \begin{macro}{\tableofcontents}
-% The table should be single-spaced, as |\parskip| should give adequate
-% spacing between items.
-% The table of contents should list itself in Software Engineering reports.
-%    \begin{macrocode}
-\let\tableofcontents@rig\tableofcontents
-\renewcommand{\tableofcontents}{%
-  \setlength{\parskip}{0pt}
-  \tableofcontents@rig \par
-}
-%    \end{macrocode}
-% \end{macro}
-%
-% \changes{v2.8}{2012/04/24}{SE Table of Contents lists itself.}
-%
 % Between the heading of each section, and the right-justified page
 % numbers, there should be dotted tab leaders to lead the eye across the
 % table.  By default, sections did not have this behaviour, although
@@ -1210,10 +1195,6 @@
 \renewcommand{\cftfigaftersnum}{:}
 \settowidth{\myfiglen}{\cftfigpresnum\cftfigaftersnum}
 \addtolength{\cftfignumwidth}{\myfiglen}
-\let\listoffigures@rig\listoffigures
-\renewcommand{\listoffigures}{%
-  \listoffigures@rig%
-}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1227,11 +1208,6 @@
 \renewcommand{\cfttabaftersnum}{:}
 \settowidth{\mytablen}{\cfttabpresnum\cfttabaftersnum}
 \addtolength{\cfttabnumwidth}{\mytablen}
-
-\let\listoftables@rig\listoftables
-\renewcommand{\listoftables}{%
-  \listoftables@rig%
-}
 %    \end{macrocode}
 % \end{macro}
 % \changes{v2.8}{2012/04/24}{Adjust the labels and formatting for the List of
