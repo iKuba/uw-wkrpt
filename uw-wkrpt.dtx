@@ -554,17 +554,6 @@
 %
 % \subsubsection{Back matter}
 %
-% \begin{DescribeMacro}{\appendix}
-% The |\appendix| command indicates that section numbers should now be
-% reset, and in uppercase letters.  That is to say that the first
-% |\section| command will be listed as appendix ``A''.
-%
-% Although appendices appear in the back matter, this command should be
-% issues before the |\backmatter| command.
-%
-% This command is analogous to the standard \LaTeXe{} command.
-% \end{DescribeMacro}
-%
 % \begin{DescribeMacro}{\backmatter}
 % The |\backmatter| command is used to indicate the back of the report.
 % This turns section numbering off once more.
@@ -979,43 +968,14 @@
   \global\def\dotzero{}
   \global\def\@secdotzerostart##1{}
   \global\def\@secdotzeroend##1{}
-%    \end{macrocode}
-%
-% \begin{macro}{\@appendixtitle}
-%
-% The E\&CE guidelines apparently want appendix titles to be ``Appendix A''.
-% This is merely shown by example.  I suspect that the Software Engineering
-% people may also have this, but it is also not explicit.
-%
-%    \begin{macrocode}
-  \global\def\@appendixtitle{}
 }
 %    \end{macrocode}
-% \end{macro}
-% \changes{v2.6}{2003/05/20}{`Appendix' should prefix appendix numbers.}
-% \end{macro}
-% \changes{v2.3}{2003/05/09}{Numbered sections end in ``.0'' in Math.}
+%
 % \end{macro}
 % \end{macro}
-% \changes{v2.3}{2003/05/09}{Numbered sections don't have page breaks in Math.}
+% \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\appendix}
-% The page numbers turn Roman here.  The only change is that for Math,
-% we eliminate the ``.0'' trailer, as ``Section A.0'' looks silly.
-%    \begin{macrocode}
-\let\appendix@rig\appendix
-\renewcommand{\appendix}{%
-  \@mainsect%
-    \renewcommand{\@appendixtitle}{Appendix }
-  \appendix@rig%
-}
-%    \end{macrocode}
-% \changes{v2.3}{2003/05/09}{Numbered sections end in ``.0'' in Math.}
-% \changes{v2.5}{2003/05/10}{Fix section numbering in Appendices.}
-% \changes{v2.6}{2003/05/20}{`Appendix' should prefix appendix numbers.}
-% \changes{v2.8}{2012/04/24}{`Appendix' prefixes appendix numbers for SE.}
-% \end{macro}
 %
 % \begin{macro}{\backmatter}
 % A fresh page is started, and the sections are unnumbered.
@@ -1072,7 +1032,7 @@
     \else
       \refstepcounter{##1}%
       \@secdotzerostart{##1}
-      \protected@edef\@svsec{\@appendixtitle\@seccntformat{##1}\relax}%
+      \protected@edef\@svsec{Appendix \@seccntformat{##1}\relax}%
       \@secdotzeroend{##1}
     \fi
     \@tempskipa ##5\relax
@@ -1085,8 +1045,8 @@
       \csname ##1mark\endcsname{##7}%
       \addcontentsline{toc}{##1}{%
         \ifnum ##2>\c@secnumdepth \else
-          \protect\numberline{\@appendixtitle\csname the##1\endcsname\dotzero}
-          \protect\phantom{\@appendixtitle}%
+          \protect\numberline{Appendix \csname the##1\endcsname\dotzero}
+          \protect\phantom{Appendix }%
         \fi
         ##7}%
     \else
@@ -1096,8 +1056,8 @@
         \csname ##1mark\endcsname{##7}%
         \addcontentsline{toc}{##1}{%
           \ifnum ##2>\c@secnumdepth \else
-            \protect\numberline{\@appendixtitle\csname the##1\endcsname\dotzero}
-            \protect\phantom{\@appendixtitle}%
+            \protect\numberline{Appendix \csname the##1\endcsname\dotzero}
+            \protect\phantom{Appendix }%
           \fi
           ##7}}%
     \fi

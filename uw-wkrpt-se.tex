@@ -69,6 +69,8 @@
 % San-Serif instead of monospace urls.
 \urlstyle{sf}
 
+\usepackage[title, titletoc]{appendix}
+
 % Now we will begin writing the document.
 \begin{document}
 
@@ -478,7 +480,9 @@ of fuss.
 
 \printbibliography[heading=bibintoc]
 
-\section{Acknowledgements}
+\section*{Acknowledgements}
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgements}
 % This section shall acknowledge the people who helped with the writing 
 % of the work report. This would include anyone who was interviewed, 
 % anyone who proofread the report, or anyone whose files were used in 
@@ -490,11 +494,7 @@ typeset it.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% APPENDICES
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% \appendix will reset \section numbers and turn them into letters.
-%%
-%% Don't forget to refer to all your appendices in the main report.
-\appendix
+\begin{appendices}
 
 \section{Bugs}\label{app:bugs}
 Currently, there are some known problems with this document class.
@@ -899,5 +899,7 @@ library.  If this is what you want to do, use the GNU Library General
 Public License instead of this License.
 
 \end{singlespacing}
+
+\end{appendices}
 
 \end{document}

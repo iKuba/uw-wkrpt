@@ -2,7 +2,7 @@
 uw-ece-workreport.cls
 uw-wkrpt.cls
 uw-wkrpt.drv
-uw-wkrpt.pdf
+*.pdf
 
 # Ignore biber files
 *.bcf
@@ -40,3 +40,4 @@ uw-wkrpt.pdf
 *.toc
 *.vrb
 *.xdy
+*.fls
