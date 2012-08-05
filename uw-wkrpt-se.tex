@@ -81,6 +81,8 @@
 \renewcommand\thefigure{\arabic{section}-\arabic{figure}}
 \renewcommand\thetable{\arabic{section}-\arabic{table}}
 
+\usepackage{titling}
+
 % Now we will begin writing the document.
 \begin{document}
 \pagenumbering{gobble}
@@ -181,10 +183,13 @@ in a WYSIWYG word processor.
 
 % TODO: Make this single spaced
 \clearpage
+\phantomsection
 \tableofcontents
 \clearpage
+\phantomsection
 \listoffigures
 \clearpage
+\phantomsection
 \listoftables
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
