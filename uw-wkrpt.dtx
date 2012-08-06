@@ -163,10 +163,8 @@
 % indented. Furthermore, we include the full label, eg ``Figure 1-2''.
 %    \begin{macrocode}
 \RequirePackage[titles]{tocloft}
-\setlength{\cftfigindent}{0pt}
 \newlength{\myfiglen}
 \renewcommand{\cftfigpresnum}{\figurename\enspace}
-\renewcommand{\cftfigaftersnum}{:}
 \settowidth{\myfiglen}{\cftfigpresnum\cftfigaftersnum}
 \addtolength{\cftfignumwidth}{\myfiglen}
 %    \end{macrocode}
@@ -176,10 +174,8 @@
 % The ``List of Tables'' should behave exactly as the ``List of
 % Figures''.
 %    \begin{macrocode}
-\setlength{\cfttabindent}{0pt}
 \newlength{\mytablen}
 \renewcommand{\cfttabpresnum}{\tablename\enspace}
-\renewcommand{\cfttabaftersnum}{:}
 \settowidth{\mytablen}{\cfttabpresnum\cfttabaftersnum}
 \addtolength{\cfttabnumwidth}{\mytablen}
 %    \end{macrocode}

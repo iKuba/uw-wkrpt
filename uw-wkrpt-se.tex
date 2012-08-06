@@ -67,6 +67,12 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftdotsep}}
 \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
+% No indentation in LoF or LoT
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+% Add a colon to figure and table captions
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cfttabaftersnum}{:}
 
 \usepackage{titlesec}
 % Each section starts on a new page.
