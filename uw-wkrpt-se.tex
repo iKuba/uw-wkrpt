@@ -24,6 +24,13 @@
 % LaTeX preamble: load some packages to add functionality
 \usepackage{graphicx} % Include graphic importing
 
+\usepackage{floatrow}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+% Captions for tables should be on top of the table.
+% All others should be on the bottom.
+\floatsetup[table]{style=Plaintop}
+
 \usepackage[T1]{fontenc} % Better fonts
 \usepackage{ae,aecompl}
 
@@ -356,7 +363,6 @@ for text layout.
 % Notice how I do not specify the extension of the file.  pdfLaTeX knows
 % about PDFs only, so get your pictures into that format.
 \begin{figure}
-  \centering
   \includegraphics[height=3.0in]{don-hires}
   \caption[Donald E. Knuth, the creator of \TeX{}.]
           {Donald E. Knuth, the creator of \TeX{}.~\cite{ref:donpicture}}
@@ -427,7 +433,6 @@ follows in order to generate PDF output.
 %
 % I draw a picture here using the picture environment.
 \begin{figure}
-  \centering
   \begin{picture}(300,170)
     % Draw the text boxes
     \put( 50, 150){\makebox(0,0){\fbox{\texttt{document.tex}}}}
@@ -476,7 +481,6 @@ characters.  Specifically, the reserved characters are:
 \begin{table}
   \caption{Typesetting special characters.}
   \label{tbl:chars}
-  \centering
   \begin{tabular}{|r|l|}
     \hline
     \multicolumn{1}{|c|}{\textbf{Name}} &

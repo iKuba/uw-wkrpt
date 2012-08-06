@@ -232,40 +232,6 @@
 % \changes{v2.8}{2012/04/24}{Adjust the labels and formatting for the List of
 %                            Figures and the List of Tables.}
 %
-% \subsection{Tables and figures}
-%
-% Save the original table and figure environments so that they can be
-% overridden.  Notice that the |\endtable| command is an implementation
-% dependant part of \LaTeX{}.
-%    \begin{macrocode}
-\let\table@rig\table
-\let\endtable@rig\endtable
-\let\figure@rig\figure
-\let\endfigure@rig\endfigure
-%    \end{macrocode}
-%
-% \begin{environment}{figure}
-% \begin{environment}{table}
-% According to Section 3.4 of the Math guidelines~\cite{ref:mwrg};
-% and Section 2 of the E\&CE~\cite{ref:ecewrg} and the
-% SE~\cite{ref:sewrg} guidelines, figures and tables must appear
-% after they are referenced in the text.  The only way to guarantee this 
-% is to change the default \meta{loc} argument to |[htbp]|.  See Section
-% \ref{sec:body} for more information.
-%
-% Software Engineering reports require that table and figure numbering restarts
-% in each appendix, and uses a combination of the appendix label and
-% table/figure number, eg A-1. To ensure this, we extend this numbering scheme
-% to main body sections as well.
-%    \begin{macrocode}
-\renewenvironment{figure}[1][htbp]{\begin{figure@rig}[#1]}{\end{figure@rig}}
-\renewenvironment{table}[1][htbp]{\begin{table@rig}[#1]}{\end{table@rig}}
-
-%    \end{macrocode}
-% \end{environment}
-% \end{environment}
-% \changes{v2.8}{2012/04/24}{Modify the table/figure labels for SE reports.}
-%
 % \iffalse
 %</class>
 % \fi
