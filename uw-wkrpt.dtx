@@ -139,32 +139,6 @@
 % \tableofcontents
 % \end{multicols}
 %
-% \subsubsection{The body} \label{sec:body}
-%
-% \begin{DescribeEnv}{figure}
-% \begin{DescribeEnv}{table}
-% The \textbf{figure} and \textbf{table} environments are used to create
-% a ``float'' which encapsulates a graphic or a \textbf{tabular}
-% environment, respectively.
-%
-% By defaults, floats try to place themselves at the top of the current 
-% page, however, Section 9.9.3 of the CESRM~\cite{ref:cesrm} suggests 
-% that figures and tables appear only after they are referenced in the 
-% text.  Other programs require this behaviour.  Therefore, a float will 
-% now try to place itself immediately after the |\begin{figure}| or 
-% |\begin{table}| command.  If this is not possible, the float tries to 
-% place itself at the end of the current page.  If this is still not 
-% possible, it will center itself on a dedicated page.
-%
-% Figures must have their captions below, and tables must have their 
-% captions on top.  Section 9.9.3 of the CESRM~\cite{ref:cesrm}.
-% shows some examples.
-%
-% These environments are analogous to the standard \LaTeXe{}
-% environments.
-% \end{DescribeEnv}
-% \end{DescribeEnv}
-%
 % \section{Implementation}
 % \iffalse
 %<*class>
@@ -179,30 +153,11 @@
 \LoadClass[titlepage,12pt]{article}
 %    \end{macrocode}
 %
-% \subsection{Letter of submittal}
-%
-% \begin{environment}{letter}
-% The \textbf{letter} environment simplifies the process of writing a
-% letter of submittal.
-%
-% With the legal requirements completed, the signature block can be
-% generated.  The signature line is only 3 inches long and 0.3 in tall,
-% but that should be sufficient for most purposes.  To satisfy Section
-% 9.1 of the CESRM~\cite{ref:cesrm}, the student's name and ID are
-% listed below the signature line.
-% Software Engineering only requires the signature, student's name, and
-% student's ID. No signature line is required. Furthermore, the signature
-% block is indented.
-%
-% \end{environment}
-%
-% \subsection{Tables and Lists} \label{sec:toc}
-%
-% \subsubsection{Lists of stuff}
+% \subsection{Lists of stuff}
 %
 % \begin{macro}{\listoffigures}
 % We ensure that the ``List of Figures'' is on a separate page and
-% single-spaced. The spacing provided by |\parskip| is sufficient. 
+% single-spaced. The spacing provided by |\parskip| is sufficient.
 %
 % The SE guidlines require that the entries are left-justified and not
 % indented. Furthermore, we include the full label, eg ``Figure 1-2''.
@@ -237,42 +192,6 @@
 % \fi
 % \iffalse
 % \fi
-% \begin{thebibliography}{99}
-% \bibitem{ref:lamport}
-% L. Lamport and D. Dibby (Illustrator),
-% \textit{\LaTeX{}: a document preparation system.}
-% Reading, MA: Addison-Wesley, second ed., 1994.
-% \bibitem{ref:cesrm} 
-% University of Waterloo, Co-operative education \& career services,
-% ``Co-operative education student reference manual.''
-% \url{http://www.cecs.uwaterloo.ca/manual/}
-% (current 24 Apr. 2003.)
-% \bibitem{ref:mwrg} 
-% University of Waterloo, Math undergrad office,
-% ``Faculty of mathematics work report guidelines.''
-% \url{http://www.math.uwaterloo.ca/navigation/Current/workreport/index.html}
-% (current 26 Apr. 2003.)
-% \bibitem{ref:ecewrg} 
-% W. M. Loucks PEng, G. H. Freeman, and J.A. Bary PEng,
-% ``E\&CE work term report guidelines.''
-% \url{http://www.ece.uwaterloo.ca/~wtrc/WrkTrmRpt.html}
-% (current 24 Apr. 2003.)
-% \bibitem{ref:sewrg} 
-% M. Armstrong, J. Atlee, W. M. Loucks PEng, G. H. Freeman, and J.A. Bary PEng,
-% ``Software engineering work report guidelines''
-% \url{http://www.softeng.uwaterloo.ca/Current/work_report_guidelines.htm}
-% (current 24 Apr. 2003.)
-% \bibitem{ref:confwtr} 
-% W. M. Loucks PEng,
-% ``Confidential work term reports.''
-% \url{http://www.pads.uwaterloo.ca/Wayne.Loucks/Service/confidential/page1.html}
-% (current 26 Apr. 2003.)
-% \bibitem{ref:ieeecsbib}
-% IEEE Computer Society Press, 
-% ``CS Style Guide: References''
-% \url{http://www.computer.org/author/style/refer.htm}
-% (current 1 Nov. 2001.)
-% \end{thebibliography}
 % \Finale
 \endinput
 % vim:et:sw=2 ft=tex
