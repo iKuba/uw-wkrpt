@@ -172,15 +172,6 @@
 % \begin{verbatim}\employeraddress{London, UK}\end{verbatim}
 % \end{DescribeMacro}
 %
-% \begin{DescribeMacro}{\term}
-% The |\term|\marg{text} command defines the previous academic term
-% the author was enrolled in.  For instance, if the author has only
-% finished one school term, (\emph{i.e.} she is in stream four), then
-% she would use
-% \begin{verbatim}\term{1A}\end{verbatim}
-% because she last attended school in her 1A term.
-% \end{DescribeMacro}
-%
 % \subsubsection{Optional values} \label{sec:optvalues}
 %
 % Some commands are completely optional and do not have to be included
@@ -200,30 +191,6 @@
 % \end{DescribeMacro}
 % \end{DescribeMacro}
 % \par^^A Insert a paragraph here to flush the floats.
-% \begin{DescribeMacro}{\theterm}
-% Here is a more comprehensive example:
-% \begingroup\center
-% \begin{minipage}[c]{\ExampleWidth-5mm}
-%   Hello, my name is J. Doe, and the title
-%   of my report is ``My first work report.''
-% \end{minipage}
-% \begin{minipage}{\textwidth-\ExampleWidth}
-%   \fvset{xrightmargin=0pt}
-%   \begin{Verbatim}
-%     \documentclass{uw-wkrpt}
-%     \title{My first work report}
-%     \author{J. Doe}
-%     % ...more definitions ...
-%     \begin{document}
-%
-%     Hello, my name is \theauthor, and the title
-%     of my report is ``\thetitle.''
-%
-%     \end{document}
-%   \end{Verbatim}
-% \end{minipage}
-% \endcenter\endgroup
-% \end{DescribeMacro}
 %
 % \subsection{The document} \label{sec:document}
 %
@@ -367,7 +334,6 @@
 % \begin{macro}{\address}
 % \begin{macro}{\employer}
 % \begin{macro}{\employeraddress}
-% \begin{macro}{\term}
 % New variables which are defined.  These, like the ones
 % above, are used to construct the title page.  As well, they can be
 % used to construct the letter of submittal.
@@ -383,12 +349,7 @@
 \newcommand{\employeraddress}[1]{\renewcommand{\@employeraddress}{#1}}
   \newcommand{\@employeraddress}{\ClassError{uw-wkrpt}%
     {No \noexpand\employeraddress given}{}}
-\newcommand{\term}[1]{\renewcommand{\@term}{\textsc{\lowercase{#1}}}}
-  \newcommand{\@term}{\ClassError{uw-wkrpt}%
-    {No \noexpand\term given}{}}
-%    \end{macrocode}
 %
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -396,7 +357,6 @@
 % \begin{macro}{\theaddress}
 % \begin{macro}{\theemployer}
 % \begin{macro}{\theemployeraddress}
-% \begin{macro}{\theterm}
 % The following commands are defined to access these values of these
 % new variables in case the author wishes to refer to them within the 
 % document.
@@ -404,9 +364,7 @@
 \newcommand{\theaddress}{\@address}
 \newcommand{\theemployer}{\@employer}
 \newcommand{\theemployeraddress}{\@employeraddress}
-\newcommand{\theterm}{\@term}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -427,8 +385,6 @@
 %    \begin{macrocode}
 \newcommand{\mymaketitle}{%
   \begin{titlepage}
-  \let\footnotesize\small
-  \let\footnoterule\relax
   \begin{center}
     {\large \MakeTextUppercase{University of Waterloo} \par Software Engineering}%
   \end{center}
@@ -449,16 +405,15 @@
         \theauthor\\
         Student ID: \theuwid\\
         User ID: \theuserid\\
-        \@term{} Software Engineering
-      \end{tabular}\par}%
-    \thedate \par%
+        \theterm\ Software Engineering\\
+        \thedate
+      \end{tabular}}%
   \end{center}
   \end{titlepage}%
 %    \end{macrocode}
 % \changes{v2.8}{2012/04/24}{Made some SE-only tweaks.}
 % After defining the title page, commands we no longer need are let go.
 %    \begin{macrocode}
-  \setcounter{footnote}{0}%
   \global\let\mymaketitle\relax
   \global\let\and\relax
 }
@@ -537,8 +492,6 @@
   \global\let\@employeraddress\@empty
   \global\let\address\relax
   \global\let\@address\@empty
-  \global\let\term\relax
-  \global\let\@term\@empty
 }
 %    \end{macrocode}
 % \end{environment}
