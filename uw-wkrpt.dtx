@@ -250,57 +250,12 @@
 \LoadClass[titlepage,12pt]{article}
 %    \end{macrocode}
 %
-% Each paragraph must be followed by a blank line, see Section 9.8.5 of
-% the CESRM~\cite{ref:cesrm}.  Instead of introducing a completely blank 
-% line, which is hideous due to spacing issues, we space each paragraph 
-% apart by an ex-height.\footnote{This is the height of the lower-case
-% letter `x'.}
-%    \begin{macrocode}
-\setlength{\parskip}{1ex}
-\setlength{\parindent}{0.4in}
-%    \end{macrocode}
-% \changes{v2.0}{2003/04/21}{Set paragraph spacing correctly.}
-% \changes{v2.1}{2003/05/02}{Set a standard paragraph skip.}
-% \changes{v2.8}{2012/04/24}{Increase the paragraph indent for SE reports.}
-%
 % \subsection{Letter of submittal}
 %
 % \begin{environment}{letter}
 % The \textbf{letter} environment simplifies the process of writing a
 % letter of submittal.
-%    \begin{macrocode}
-\newenvironment{letter}{%
-%    \end{macrocode}
 %
-% We use the standard business letter format, which means paragraphs
-% are not indented.
-%    \begin{macrocode}
-  \setlength{\parindent}{0pt}
-  \setlength{\parskip}{1ex}
-%    \end{macrocode}
-%
-% \changes{v2.0}{2003/04/26}{New options for letter formats.}
-% \changes{v2.8.1}{2012/04/25}{All letter formats are now the same.}
-%
-% The header block is created.  First, the author and the author's
-% address; then the current date; then the receiver of the report and
-% his address; and finally the salutation.
-%
-% Note that for Software Engineering reports, the letter is addressed to
-% the director, not the chair.
-%    \begin{macrocode}
-  \noindent\theauthor\\
-  \theaddress\par\noindent%
-  \thedate \par\noindent%
-  Dr.\ Andrew\ Morton, Director\\*
-  Software Engineering\\*
-  University of Waterloo\\*
-  Waterloo, ON\ \ N2L 3G1
-  \par\noindent
-  Dear Sir:%
-
-    \par}
-%    \end{macrocode}
 % With the legal requirements completed, the signature block can be
 % generated.  The signature line is only 3 inches long and 0.3 in tall,
 % but that should be sufficient for most purposes.  To satisfy Section
@@ -309,21 +264,6 @@
 % Software Engineering only requires the signature, student's name, and
 % student's ID. No signature line is required. Furthermore, the signature
 % block is indented.
-%    \begin{macrocode}
-  {
-  \par\noindent
-  \begin{minipage}{\textwidth}
-  \setlength{\parindent}{3in}
-  \setlength{\parskip}{1ex}
-  \vspace*{1ex}
-
-  Sincerely,
-  \vspace*{0.75in}\\
-  \indent\theauthor\\
-  \indent Student ID: \theuwid
-  \end{minipage}
-}
-%    \end{macrocode}
 %
 % \end{environment}
 %

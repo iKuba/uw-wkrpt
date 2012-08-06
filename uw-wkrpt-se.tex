@@ -87,6 +87,11 @@
 
 \usepackage{textcase}
 
+% Space between paragraphs is the size of one 'x'.
+\setlength{\parskip}{1ex}
+% Paragraph indent.
+\setlength{\parindent}{0.4in}
+
 % Now we will begin writing the document.
 \begin{document}
 \pagenumbering{gobble}
@@ -160,7 +165,19 @@
 \singlespacing
 
 % After this, we must create a letter of submission.
-\begin{letter}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex}
+\noindent\theauthor\\
+\theaddress\par\noindent%
+\thedate \par\noindent%
+Dr.\ Andrew\ Morton, Director\\*
+Software Engineering\\*
+University of Waterloo\\*
+Waterloo, ON\ \ N2L 3G1
+\par\noindent
+Dear Sir:%
+
+\par
 I have just completed my second work term, following my \theterm{} term.
 Please find enclosed my first work term report entitled:
 ``\thetitle'' for the Software Widgets group at \theemployer.
@@ -182,7 +199,22 @@ mentioned above, in writing this report. I also confirm that this report has not
 been previously submitted for academic credit at this or any other academic
 institution.
 
-\end{letter}
+\par\noindent
+\begin{minipage}{\textwidth}
+\setlength{\parindent}{3in}
+\setlength{\parskip}{1ex}
+\vspace*{1ex}
+
+Sincerely,
+\vspace*{0.75in}\\
+\indent\theauthor\\
+\indent Student ID: \theuwid
+\end{minipage}
+
+% Space between paragraphs is the size of one 'x'.
+\setlength{\parskip}{1ex}
+% Paragraph indent.
+\setlength{\parindent}{0.4in}
 
 \onehalfspacing
 % We continue with required sections, such as the Executive Summary.
