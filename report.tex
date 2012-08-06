@@ -1,24 +1,3 @@
-% uw-wkrpt-se.tex - An example work report that uses uw-wkrpt.cls
-% Copyright (C) 2002,2003  Simon Law
-% 
-% This program is free software; you can redistribute it and/or modify
-% it under the terms of the GNU General Public License as published by
-% the Free Software Foundation; either version 2 of the License, or
-% (at your option) any later version.
-% 
-% This program is distributed in the hope that it will be useful,
-% but WITHOUT ANY WARRANTY; without even the implied warranty of
-% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-% GNU General Public License for more details.
-% 
-% You should have received a copy of the GNU General Public License
-% along with this program; if not, write to the Free Software
-% Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% We begin by calling the workreport class which includes all the
-% definitions for the macros we will use.
 \documentclass[titlepage,12pt]{article}
 
 % LaTeX preamble: load some packages to add functionality
@@ -113,6 +92,8 @@
 
 \usepackage{textcase}
 
+\usepackage{microtype}
+
 % Space between paragraphs is the size of one 'x'.
 \setlength{\parskip}{1ex}
 % Paragraph indent.
@@ -125,32 +106,15 @@
 %% IMPORTANT INFORMATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% First we, should create a title page.  This is done below:
-% Fill in the title of your report.
 \title{A \LaTeX{} Document Class for Work Reports}
-
-% Fill in your name.
 \author{J. Random Hacker}
-
 \date{April 24, 2012}
-
-% Fill in your student ID number.
 \newcommand{\theuwid}{01234567}
-
-% Fill in your student user ID
 \newcommand{\theuserid}{jrhacker}
-
-% Fill in your term.
 \newcommand{\theterm}{2A}
-
-% Fill in your home address.
 \newcommand{\theaddress}{123 University Ave. W.\\*
                           Waterloo, ON\ \ N2L 3G1}
-
-% Fill in your employer's name.
 \newcommand{\theemployer}{Acme Incorporated}
-
-% Fill in your employer's city and province.
 \newcommand{\theemployeraddress}{Burbank, CA}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
