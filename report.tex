@@ -19,7 +19,7 @@
 %
 % We begin by calling the workreport class which includes all the
 % definitions for the macros we will use.
-\documentclass{uw-wkrpt}
+\documentclass[titlepage,12pt]{article}
 
 % LaTeX preamble: load some packages to add functionality
 \usepackage{graphicx} % Include graphic importing
@@ -46,7 +46,7 @@
 % Use biblatex for references
 \usepackage[style=ieee,sorting=none,dateabbrev=false,backend=biber]{biblatex}
 \renewcommand\refname{References}
-\addbibresource{uw-wkrpt-bib.bib} % Specify the bibliography file
+\addbibresource{report.bib} % Specify the bibliography file
 
 % This needs to be the last package loaded
 \usepackage[pdftex]{hyperref} % Generate PDF links and bookmarks.
@@ -73,6 +73,19 @@
 % Add a colon to figure and table captions
 \renewcommand{\cftfigaftersnum}{:}
 \renewcommand{\cfttabaftersnum}{:}
+% Place Figure or Table before the number
+\renewcommand{\cftfigpresnum}{\figurename\enspace}
+\renewcommand{\cfttabpresnum}{\tablename\enspace}
+
+% Increase width of boxes for proper vertical alignment with multiline titles
+% See tocloft manual pg 11 for more info.
+\newlength{\myfiglen}
+\settowidth{\myfiglen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{\myfiglen}
+
+\newlength{\mytablen}
+\settowidth{\mytablen}{\cfttabpresnum\cfttabaftersnum}
+\addtolength{\cfttabnumwidth}{\mytablen}
 
 \usepackage{titlesec}
 % Each section starts on a new page.
