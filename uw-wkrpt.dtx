@@ -284,9 +284,7 @@
 % apart by an ex-height.\footnote{This is the height of the lower-case
 % letter `x'.}
 %    \begin{macrocode}
-\newlength{\uwwkrpt@parskip}
-\setlength{\uwwkrpt@parskip}{1ex}
-\setlength{\parskip}{\uwwkrpt@parskip}
+\setlength{\parskip}{1ex}
 \setlength{\parindent}{0.4in}
 %    \end{macrocode}
 % \changes{v2.0}{2003/04/21}{Set paragraph spacing correctly.}
@@ -318,7 +316,7 @@
 % are not indented.
 %    \begin{macrocode}
   \setlength{\parindent}{0pt}
-  \setlength{\parskip}{\uwwkrpt@parskip}
+  \setlength{\parskip}{1ex}
 %    \end{macrocode}
 %
 % \changes{v2.0}{2003/04/26}{New options for letter formats.}
@@ -356,8 +354,9 @@
   \par\noindent
   \begin{minipage}{\textwidth}
   \setlength{\parindent}{3in}
-  \setlength{\parskip}{\uwwkrpt@parskip}
-  \vspace*{\uwwkrpt@parskip}
+  \setlength{\parskip}{1ex}
+  \vspace*{1ex}
+
   Sincerely,
   \vspace*{0.75in}\\
   \indent\theauthor\\
