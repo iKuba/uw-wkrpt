@@ -146,32 +146,7 @@
 % \ref{sec:document},) and the letter of submittal (see Section 
 % \ref{sec:prelim}.)
 %
-% \begin{DescribeMacro}{\address}
-% The |\address|\marg{text} command defines the author's home address.
-% Since an address can span multiple lines, each line is separated with 
-% a |\\*| command.
-% \begin{verbatim}\address{200 University Ave. W.,\\*
-%         Waterloo, ON\ \ N2L 3G1}\end{verbatim}
-% Also note the use of \verb*|\ \ | ^^A*
-% to force a double-space between the province and the postal code.
-% \end{DescribeMacro}
-%
-% \begin{DescribeMacro}{\employer}
-% The |\employer|\marg{text} command defines the employer's name.  
-% Typically, this will be the company's business name.
-% \end{DescribeMacro}
 % 
-% \begin{DescribeMacro}{\employeraddress}
-% The |\employeraddress|\marg{text} command defines the employer's
-% short address, which should merely be the name of the city and province.
-% For example, if the employer is located in Montr\'eal, Qu\'ebec:
-% \begin{verbatim}\employeraddress{Montr\'eal, QC}\end{verbatim}
-% or in New York, New York, USA:
-% \begin{verbatim}\employeraddress{New York, NY}\end{verbatim}
-% or in London, England:
-% \begin{verbatim}\employeraddress{London, UK}\end{verbatim}
-% \end{DescribeMacro}
-%
 % \subsubsection{Optional values} \label{sec:optvalues}
 %
 % Some commands are completely optional and do not have to be included
@@ -179,17 +154,6 @@
 %
 % \subsubsection{Accessing values}
 %
-% \begin{DescribeMacro}{\theaddress}
-% \begin{DescribeMacro}{\theemployer}
-% \begin{DescribeMacro}{\theemployeraddress}
-% Each of these commands reproduce the text defined by the respective
-% command defined in the previous sections.  Although these macros
-% can be used anywhere in the report, they are used primarily in the 
-% \textbf{letter} environment, see Section \ref{sec:prelim}.
-% \end{DescribeMacro}
-% \end{DescribeMacro}
-% \end{DescribeMacro}
-% \end{DescribeMacro}
 % \par^^A Insert a paragraph here to flush the floats.
 %
 % \subsection{The document} \label{sec:document}
@@ -331,44 +295,6 @@
 %
 % \subsection{Manditory and optional values}
 %
-% \begin{macro}{\address}
-% \begin{macro}{\employer}
-% \begin{macro}{\employeraddress}
-% New variables which are defined.  These, like the ones
-% above, are used to construct the title page.  As well, they can be
-% used to construct the letter of submittal.
-%
-% The following are manditory values, see Section \ref{sec:mandvalues}.
-%    \begin{macrocode}
-\newcommand{\address}[1]{\renewcommand{\@address}{#1}}
-  \newcommand{\@address}{\ClassError{uw-wkrpt}%
-    {No \noexpand\address given}{}}
-\newcommand{\employer}[1]{\renewcommand{\@employer}{#1}}
-  \newcommand{\@employer}{\ClassError{uw-wkrpt}%
-    {No \noexpand\employer given}{}}
-\newcommand{\employeraddress}[1]{\renewcommand{\@employeraddress}{#1}}
-  \newcommand{\@employeraddress}{\ClassError{uw-wkrpt}%
-    {No \noexpand\employeraddress given}{}}
-%
-% \end{macro}
-% \end{macro}
-% \end{macro}
-%
-% \begin{macro}{\theaddress}
-% \begin{macro}{\theemployer}
-% \begin{macro}{\theemployeraddress}
-% The following commands are defined to access these values of these
-% new variables in case the author wishes to refer to them within the 
-% document.
-%    \begin{macrocode}
-\newcommand{\theaddress}{\@address}
-\newcommand{\theemployer}{\@employer}
-\newcommand{\theemployeraddress}{\@employeraddress}
-%    \end{macrocode}
-% \end{macro}
-% \end{macro}
-% \end{macro}
-%
 % \subsection{Title page}
 %
 % We require the \textsf{textcase} package to provide the
@@ -376,49 +302,6 @@
 %    \begin{macrocode}
 \RequirePackage{textcase}
 %    \end{macrocode}
-%
-% \begin{macro}{\mymaketitle}
-% The title page must be laid out in a certain format, for an example
-% see Figure 1 of Section 9.9.1 of the CESRM~\cite{ref:cesrm}.
-% There are minor changes to the Software Engineering format, but this is
-% mainly a matter of personal preference.
-%    \begin{macrocode}
-\newcommand{\mymaketitle}{%
-  \begin{titlepage}
-  \begin{center}
-    {\large \MakeTextUppercase{University of Waterloo} \par Software Engineering}%
-  \end{center}
-  \null\vfill%
-  \begin{center}%
-    \LARGE \thetitle \par
-  \end{center}\par
-  \null\vfill%
-  \begin{center}
-    \large \@employer\\
-    \@employeraddress\par
-  \end{center}\par
-  \null\vfill%
-  \begin{center}{%
-    \normalsize
-    \textbf{Prepared by}\\
-      \begin{tabular}[t]{c}%
-        \theauthor\\
-        Student ID: \theuwid\\
-        User ID: \theuserid\\
-        \theterm\ Software Engineering\\
-        \thedate
-      \end{tabular}}%
-  \end{center}
-  \end{titlepage}%
-%    \end{macrocode}
-% \changes{v2.8}{2012/04/24}{Made some SE-only tweaks.}
-% After defining the title page, commands we no longer need are let go.
-%    \begin{macrocode}
-  \global\let\mymaketitle\relax
-  \global\let\and\relax
-}
-%    \end{macrocode}
-% \end{macro}
 %
 % As well, this page should have no page numbering.
 %
@@ -448,7 +331,8 @@
 % Note that for Software Engineering reports, the letter is addressed to
 % the director, not the chair.
 %    \begin{macrocode}
-  \noindent\theauthor\\\@address\par\noindent%
+  \noindent\theauthor\\
+  \theaddress\par\noindent%
   \thedate \par\noindent%
   Dr.\ Andrew\ Morton, Director\\*
   Software Engineering\\*
@@ -479,21 +363,9 @@
   \indent\theauthor\\
   \indent Student ID: \theuwid
   \end{minipage}
-%    \end{macrocode}
-%
-% \changes{v2.2}{2003/05/02}{Keep the signature block together.}
-% \changes{v2.8}{2012/04/24}{More SE-only tweaks to the signature block.}
-%
-% All the excess variables that were used can now be let go.
-%    \begin{macrocode}
-  \global\let\employer\relax
-  \global\let\@employer\@empty
-  \global\let\employeraddress\relax
-  \global\let\@employeraddress\@empty
-  \global\let\address\relax
-  \global\let\@address\@empty
 }
 %    \end{macrocode}
+%
 % \end{environment}
 %
 % \subsection{Tables and Lists} \label{sec:toc}

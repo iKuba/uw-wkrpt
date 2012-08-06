@@ -85,6 +85,8 @@
 
 \usepackage{setspace}
 
+\usepackage{textcase}
+
 % Now we will begin writing the document.
 \begin{document}
 \pagenumbering{gobble}
@@ -111,19 +113,45 @@
 \newcommand{\theterm}{2A}
 
 % Fill in your home address.
-\address{123 University Ave. W.\\*
-         Waterloo, ON\ \ N2L 3G1}
+\newcommand{\theaddress}{123 University Ave. W.\\*
+                          Waterloo, ON\ \ N2L 3G1}
 
 % Fill in your employer's name.
-\employer{Acme Incorporated}
+\newcommand{\theemployer}{Acme Incorporated}
 
 % Fill in your employer's city and province.
-\employeraddress{Burbank, CA}
+\newcommand{\theemployeraddress}{Burbank, CA}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TITLE PAGE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-% Now, we ask LaTeX to generate the title.
-\mymaketitle
+\begin{titlepage}
+  \begin{center}
+    {\large \MakeTextUppercase{University of Waterloo} \par Software Engineering}
+  \end{center}
+  \null\vfill
+  \begin{center}
+    \LARGE \thetitle \par
+  \end{center}\par
+  \null\vfill
+  \begin{center}
+    \large \theemployer\\
+    \theemployeraddress\par
+  \end{center}\par
+  \null\vfill
+  \begin{center}{
+    \normalsize
+    \textbf{Prepared by}\\
+      \begin{tabular}[t]{c}
+        \theauthor\\
+        Student ID: \theuwid\\
+        User ID: \theuserid\\
+        \theterm\ Software Engineering\\
+      \end{tabular}}
+      \par\thedate
+  \end{center}
+\end{titlepage}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FRONT MATTER
